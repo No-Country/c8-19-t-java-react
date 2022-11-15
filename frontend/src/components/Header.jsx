@@ -4,15 +4,17 @@ const Header = () => {
   return (
     <header className=" bg-slate-400 w-full ">
       <div className="flex justify-between items-center px-[10%] m-auto">
-        <Link to="/">LOGO</Link>
+        <Link to="/" className="font-bold text-2xl">
+          LOGO
+        </Link>
         <ul className=" flex gap-6 py-4 ">
-          <Link className="text  font-semibold " to="/">
+          <Link className="text-xl" to="/">
             Home
           </Link>
-          <Link className="text  font-semibold " to="/shop">
+          <Link className="text-xl" to="/shop">
             Shop
           </Link>
-          <Link className="text  font-semibold " to="/contact">
+          <Link className="text-xl" to="/contact">
             Contact
           </Link>
         </ul>
