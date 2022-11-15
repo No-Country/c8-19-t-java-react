@@ -23,9 +23,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </Route>
 
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<Login />} />
         </Route>
 
-        <Route path="/login" element={<Login />} />
       </Routes>
     </AuthProvider>
   </BrowserRouter>
