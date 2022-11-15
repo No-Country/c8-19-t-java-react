@@ -8,6 +8,7 @@ import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
 import AuthProvider from "./context/AuthProvider";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Login from "./pages/Login";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -15,11 +16,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
+
+          {/* Ruta protegida */}
           <Route element={<ProtectedRoute />}>
             <Route path="/shop" element={<Shop />} />
           </Route>
+
           <Route path="/contact" element={<Contact />} />
         </Route>
+
+        <Route path="/login" element={<Login />} />
       </Routes>
     </AuthProvider>
   </BrowserRouter>
