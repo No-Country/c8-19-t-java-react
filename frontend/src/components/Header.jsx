@@ -38,8 +38,9 @@ const Header = () => {
         </ul>
         <span
           className={
-            user &&
-            `bg-green-400 rounded text-white font-bold text-xl py-1 px-4`
+            user
+              ? `bg-green-400 rounded text-white font-bold text-xl py-1 px-4`
+              : undefined
           }
         >
           {user && "Conectado"}
