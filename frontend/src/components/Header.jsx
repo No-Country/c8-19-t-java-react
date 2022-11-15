@@ -1,8 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 const Header = () => {
-  const { user, handleLogIn, handleLogOut } = useAuth();
+  const { user, handleLogOut } = useAuth();
+
+ const navigate = useNavigate()
+
+ const handleLogin =()=>{
+  navigate('/login')
+ }
 
   return (
     <header className=" bg-slate-400 w-full ">
@@ -29,14 +35,14 @@ const Header = () => {
             </button>
           ) : (
             <button
-              onClick={handleLogIn}
+              onClick={handleLogin}
               className="bg-orange-500 text-white px-4 py-1 text-xl rounded font-semibold cursor-pointer"
             >
               Login
             </button>
           )}
         </ul>
-        <span
+        {/* <span
           className={
             user
               ? `bg-green-400 rounded text-white font-bold text-xl py-1 px-4`
@@ -44,7 +50,7 @@ const Header = () => {
           }
         >
           {user && "Conectado"}
-        </span>
+        </span> */}
       </div>
     </header>
   );

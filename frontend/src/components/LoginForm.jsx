@@ -1,10 +1,16 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
+
 import { BsArrowRightCircle } from 'react-icons/bs';
 
 const LoginForm = () => {
+
+    const { handleLogIn} = useAuth();
+    const navigate = useNavigate()
+
     const { handleSubmit, errors, touched, getFieldProps } = useFormik({
         initialValues: {
             email: '',
@@ -12,6 +18,8 @@ const LoginForm = () => {
         },
         onSubmit: values => {
             console.log(values);
+            handleLogIn()
+            navigate('/shop')
         },
         validationSchema: Yup.object({
             email: Yup.string()
