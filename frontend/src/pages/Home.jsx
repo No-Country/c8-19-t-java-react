@@ -1,16 +1,17 @@
-import Destacados from "../components/Destacados";
-import Escapadas from "../components/Escapadas";
+import Carrusell from "../components/Carrusell";
+
 import Search from "../components/Search";
 import useAuth from "../hooks/useAuth";
+import data from "../data/dataImages";
 
 const Home = () => {
   const { user } = useAuth();
 
   return (
-    <div className="">
+    <div className="mb-[5rem]">
       <Search />
-      <Escapadas />
-      <Destacados />
+      <Carrusell title="Escapadas" data={data} />
+      <Carrusell title="Lugares mas recomendados" data={data} />
     </div>
   );
 };
