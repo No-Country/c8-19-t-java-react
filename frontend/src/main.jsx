@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import AuthProvider from "./context/AuthProvider";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -24,8 +25,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Route>
-
       </Routes>
     </AuthProvider>
   </BrowserRouter>

@@ -5,42 +5,52 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
 import { BsArrowRightCircle } from "react-icons/bs";
+import basicRegisterSchema from "../schemas/registerSchemas";
 
-const LoginForm = () => {
+const RegisterForm = () => {
   const { handleLogIn } = useAuth();
   const navigate = useNavigate();
 
   const { handleSubmit, errors, touched, getFieldProps } = useFormik({
     initialValues: {
+      userName: "",
       email: "",
       password: "",
+      confirmPassword: "",
     },
     onSubmit: (values) => {
       console.log(values);
       handleLogIn();
       navigate("/shop");
     },
-    validationSchema: Yup.object({
-      email: Yup.string()
-        .email("El correo no tiene un formato válido")
-        .required("Requerido"),
-      password: Yup.string()
-        .required("Requerido")
-        .min(8, "Must be 8 characters or more")
-        .matches(/[a-z]+/, "One lowercase character")
-        .matches(/[A-Z]+/, "One uppercase character")
-        .matches(/[@$!%*#?&]+/, "One special character")
-        .matches(/\d+/, "One number"),
-    }),
+    validationSchema: basicRegisterSchema,
   });
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      <div className="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-3xl w-50 max-w-md">
-        <div className="font-medium text-center text-xl sm:text-3xl text-gray-800">
-          Ingresar a mi cuenta
-        </div>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 ">
+      <div className="flex flex-col w-[500px] bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-3xl w-50 max-w-md">
+        <h2 className="font-medium text-center text-xl sm:text-3xl text-gray-800">
+          Create Account
+        </h2>
         <form onSubmit={handleSubmit} className="mt-10" noValidate>
+          <div className="flex flex-col mb-5 min-h-[80px] ">
+            <label
+              htmlFor="userName"
+              className="mb-1 text-xs tracking-wide text-gray-600"
+            >
+              Username
+            </label>
+            <input
+              type="userName"
+              className={`text-sm  placeholder-gray-500 pl-3 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400 ${
+                errors.userName ? "border-red-400" : ""
+              }`}
+              {...getFieldProps("userName")}
+            />
+            {touched.userName && errors.userName && (
+              <span className="text-red-500">{errors.userName}</span>
+            )}
+          </div>
           <div className="flex flex-col mb-5 min-h-[80px] ">
             <label
               htmlFor="email"
@@ -65,15 +75,36 @@ const LoginForm = () => {
               htmlFor="password"
               className="mb-1 text-xs tracking-wide text-gray-600"
             >
-              Contraseña
+              Password
             </label>
             <input
               type="password"
-              className="text-sm  placeholder-gray-500 pl-3 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
+              className={`text-sm  placeholder-gray-500 pl-3 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400 ${
+                errors.userName ? "border-red-400" : ""
+              }`}
               {...getFieldProps("password")}
             />
             {touched.password && errors.password && (
               <span className="text-red-500">{errors.password}</span>
+            )}
+          </div>
+
+          <div className="flex flex-col mb-5 min-h-[80px]">
+            <label
+              htmlFor="confirmPassword"
+              className="mb-1 text-xs tracking-wide text-gray-600"
+            >
+              Confirm Password
+            </label>
+            <input
+              type="password"
+              className={`text-sm  placeholder-gray-500 pl-3 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400 ${
+                errors.userName ? "border-red-400" : ""
+              }`}
+              {...getFieldProps("confirmPassword")}
+            />
+            {touched.confirmPassword && errors.confirmPassword && (
+              <span className="text-red-500">{errors.confirmPassword}</span>
             )}
           </div>
 
@@ -82,7 +113,7 @@ const LoginForm = () => {
               type="submit"
               className="flex mt-2 items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-500  hover:bg-blue-600 rounded-2xl py-2 w-full transition duration-150 ease-in"
             >
-              <span className="mr-2 uppercase">Ingresar</span>
+              <span className="mr-2 uppercase">Register</span>
               <span className="text-lg">
                 <BsArrowRightCircle />
               </span>
@@ -105,4 +136,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
