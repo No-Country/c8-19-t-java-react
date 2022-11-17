@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-const basicRegisterSchema = yup.object().shape({
+const basicSchema = yup.object().shape({
   userName: yup
     .string("This field accept only letters")
     .required("This field is required")
@@ -24,4 +24,4 @@ const basicRegisterSchema = yup.object().shape({
     .oneOf([yup.ref("password"), null], "Passwords must match"),
 });
 
-export default basicRegisterSchema;
+export default basicSchema;

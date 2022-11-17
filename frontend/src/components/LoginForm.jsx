@@ -1,9 +1,6 @@
 import { useFormik } from "formik";
-import * as Yup from "yup";
-
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-
 import { BsArrowRightCircle } from "react-icons/bs";
 
 const LoginForm = () => {
@@ -20,18 +17,6 @@ const LoginForm = () => {
       handleLogIn();
       navigate("/shop");
     },
-    validationSchema: Yup.object({
-      email: Yup.string()
-        .email("El correo no tiene un formato válido")
-        .required("Requerido"),
-      password: Yup.string()
-        .required("Requerido")
-        .min(8, "Must be 8 characters or more")
-        .matches(/[a-z]+/, "One lowercase character")
-        .matches(/[A-Z]+/, "One uppercase character")
-        .matches(/[@$!%*#?&]+/, "One special character")
-        .matches(/\d+/, "One number"),
-    }),
   });
 
   return (
@@ -50,14 +35,9 @@ const LoginForm = () => {
             </label>
             <input
               type="email"
-              className={`text-sm  placeholder-gray-500 pl-3 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400 ${
-                errors.email ? "border-red-400" : ""
-              }`}
+              className={`text-sm  placeholder-gray-500 pl-3 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400`}
               {...getFieldProps("email")}
             />
-            {touched.email && errors.email && (
-              <span className="text-red-500">{errors.email}</span>
-            )}
           </div>
 
           <div className="flex flex-col mb-5 min-h-[80px]">
@@ -72,9 +52,6 @@ const LoginForm = () => {
               className="text-sm  placeholder-gray-500 pl-3 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
               {...getFieldProps("password")}
             />
-            {touched.password && errors.password && (
-              <span className="text-red-500">{errors.password}</span>
-            )}
           </div>
 
           <div className="flex w-full">
