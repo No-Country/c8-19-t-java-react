@@ -1,4 +1,4 @@
 const Destacados = () => {
-  return <div>Destacados</div>;
+  return <div></div>;
 };
 export default Destacados;

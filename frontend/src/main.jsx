@@ -10,6 +10,7 @@ import AuthProvider from "./context/AuthProvider";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Welcome from "./pages/Welcome";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
