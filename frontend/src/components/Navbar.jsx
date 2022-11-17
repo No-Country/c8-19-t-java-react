@@ -15,9 +15,9 @@ const Navbar = () => {
   };
 
   return (
-    <header className=" bg-white w-full shadow-lg fixed bottom-0 ">
+    <header className=" bg-white w-full shadow-lg fixed bottom-0 px-4 ">
       <div className="">
-        <ul className="flex gap-6 py-4 items-center justify-between px-10 ">
+        <ul className="flex gap-6 py-4 items-center justify-between  ">
           <Link to="/" className="group flex flex-col items-center gap-1 ">
             <GrHomeRounded className="text-3xl text-slate-900 group-hover:text-blue-300" />
             <p className="text-gray-500 text-sm group-hover:text-slate-900 group-hover:text-semibold">
