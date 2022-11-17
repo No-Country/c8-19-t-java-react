@@ -3,13 +3,16 @@ import { HiOutlineOfficeBuilding } from "react-icons/hi";
 
 const Carrusell = ({ title, data }) => {
   return (
-    <div className="py-6  ">
+    <div className="py-6 ">
       <div className="px-2">
         <h2 className="text-slate-900 font-bold text-2xl mb-2">{title}</h2>
         <div className="relative flex items-center gap-2">
           <div className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scrollbar-hide ">
             {data.map((item, index) => (
-              <div className="inline-block overflow-hidden m-2  rounded-t-lg shadow-lg ">
+              <div
+                key={index}
+                className="inline-block overflow-hidden m-2  rounded-t-2xl shadow-lg "
+              >
                 <figure className="overflow-hidden">
                   <img
                     className=" w-64  hover:scale-[1.2] duration-500"
