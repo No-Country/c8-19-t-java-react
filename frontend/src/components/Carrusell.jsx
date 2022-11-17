@@ -3,7 +3,7 @@ import { HiOutlineOfficeBuilding } from "react-icons/hi";
 
 const Carrusell = ({ title, data }) => {
   return (
-    <div className="mb-6  ">
+    <div className="py-6  ">
       <div className="px-2">
         <h2 className="text-slate-900 font-bold text-2xl mb-2">{title}</h2>
         <div className="relative flex items-center gap-2">
