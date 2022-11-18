@@ -1,18 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
 import { GrHomeRounded } from "react-icons/gr";
 import { BsPencilSquare, BsPerson, BsSearch } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
-import { HiOutlinePencilAlt } from "react-icons/hi";
 
 const Navbar = () => {
-  const { user, handleLogOut } = useAuth();
 
-  const navigate = useNavigate();
-
-  const handleLogin = () => {
-    navigate("/login");
-  };
 
   return (
     <header className=" bg-white w-full shadow-lg fixed bottom-0 px-4 z-40 ">

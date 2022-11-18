@@ -1,21 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
-import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./store/store";
+import App from "./App";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
-import AuthProvider from "./context/AuthProvider";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Welcome from "./pages/Welcome";
 import PlaceDetails from "./pages/PlaceDetails";
+import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <AuthProvider>
+    <Provider store={store}>
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
@@ -31,6 +31,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/register" element={<Register />}/>
         </Route>
       </Routes>
-    </AuthProvider>
+    </Provider>
   </BrowserRouter>
 );

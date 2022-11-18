@@ -1,11 +1,12 @@
 import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+
 import { BsArrowRightCircle } from "react-icons/bs";
 import basicSchema from "../schemas/basicSchema";
+import { useAuthStore } from "../hooks/useAuthStore";
 
 const RegisterForm = () => {
-  const { handleLogIn } = useAuth();
+  const { handleLogIn } = useAuthStore();
   const navigate = useNavigate();
 
   const { handleSubmit, errors, touched, getFieldProps } = useFormik({
@@ -17,7 +18,7 @@ const RegisterForm = () => {
     },
     onSubmit: (values) => {
       console.log(values);
-      handleLogIn();
+      handleLogIn({...values});
       navigate("/login");
     },
     validationSchema: basicSchema,

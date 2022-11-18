@@ -1,20 +1,20 @@
 import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
-import useAuth from "../hooks/useAuth";
+import { useAuthStore } from "../hooks/useAuthStore";
 import { BsArrowRightCircle } from "react-icons/bs";
 
 const LoginForm = () => {
-  const { handleLogIn } = useAuth();
+  const { handleLogin } = useAuthStore();
   const navigate = useNavigate();
 
-  const { handleSubmit, errors, touched, getFieldProps } = useFormik({
+  const { handleSubmit, getFieldProps } = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
     onSubmit: (values) => {
       console.log(values);
-      handleLogIn();
+      handleLogin(values);
       navigate("/shop");
     },
   });
