@@ -1,6 +1,7 @@
 package com.sunny.holidays.auth.controller;
 
 import com.sunny.holidays.auth.entity.User;
+import com.sunny.holidays.auth.enums.Role;
 import com.sunny.holidays.auth.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -22,6 +23,7 @@ public class UserController {
         String pwd = user.getPassword();
         String encrptedPwd = passwordEncoder.encode(pwd);
         user.setPassword(encrptedPwd);
+        //user.setRole(Role.valueOf("USER"));
         userRepository.save(user);
         return "user Added Successfully";
     }

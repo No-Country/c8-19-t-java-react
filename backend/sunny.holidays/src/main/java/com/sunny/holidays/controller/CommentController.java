@@ -35,8 +35,14 @@ public class CommentController {
         return ResponseEntity.status(HttpStatus.CREATED).body(commentSaved);
     }
 
-    @DeleteMapping("/")
-    public ResponseEntity<Comment> delete(Long id) {
+    @PutMapping("/{id}")
+    public ResponseEntity<Comment> update(@PathVariable Long id, @RequestBody Comment comment){
+        Comment commentUpdated = this.commentService.update(id, comment);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(commentUpdated);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Comment> delete(@PathVariable Long id) {
         this.commentService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }

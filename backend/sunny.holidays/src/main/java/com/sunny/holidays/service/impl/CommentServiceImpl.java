@@ -31,8 +31,11 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public Comment update(Comment comment, Long id) {
-        return null;
+    public Comment update(Long id, Comment comment) {
+        Optional<Comment> commentOptional = this.commentRepository.findById(id);
+
+        comment.setId(commentOptional.get().getId());
+        return this.commentRepository.save(comment);
     }
 
     @Override
