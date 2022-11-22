@@ -1,5 +1,6 @@
 package com.sunny.holidays.auth.service.impl;
 
+import com.sunny.holidays.auth.entity.Image;
 import com.sunny.holidays.auth.entity.User;
 import com.sunny.holidays.auth.repository.UserRepository;
 import com.sunny.holidays.auth.service.CustomUserDetails;
@@ -8,17 +9,22 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
     private UserRepository repository;
+    @Autowired
+    private ImageService imageService;
+    //falta agregar Multipartfile al registro de usuario
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException  {
         User user = repository.findByUsername(username);
         CustomUserDetails userDetails = null;
+
         if(user !=null)
         {
             userDetails = new CustomUserDetails();
