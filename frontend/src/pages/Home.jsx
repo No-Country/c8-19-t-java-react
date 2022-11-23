@@ -1,15 +1,11 @@
-import Carrusell from "../components/Carrusell";
-
 import Search from "../components/Search";
-import data from "../data/dataImages";
 
 const Home = () => {
-
   return (
     <div className="mb-[5rem]">
       <Search />
-      <Carrusell title="Escapadas" data={data} />
-      <Carrusell title="Lugares mas recomendados" data={data} />
+      {/* <Carrusell title="Escapadas" data={data} />
+      <Carrusell title="Lugares mas recomendados" data={data} /> */}
     </div>
   );
 };

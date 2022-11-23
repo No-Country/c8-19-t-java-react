@@ -1,13 +1,31 @@
 import { AiFillStar } from "react-icons/ai";
 import { HiOutlineOfficeBuilding } from "react-icons/hi";
+import { MdArrowForwardIos, MdOutlineArrowBackIos } from "react-icons/md";
 
 const Carrusell = ({ title, data }) => {
+  const moveLeft = () => {
+    const slider = document.getElementById("slider");
+    slider.scrollLeft -= 260;
+  };
+
+  const moveRight = () => {
+    const slider = document.getElementById("slider");
+    slider.scrollLeft += 260;
+  };
+
   return (
     <div className="py-6 ">
       <div className="px-2">
         <h2 className="text-slate-900 font-bold text-2xl mb-2">{title}</h2>
-        <div className="relative flex items-center gap-2">
-          <div className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scrollbar-hide ">
+        <div className="relative flex items-center">
+          <MdOutlineArrowBackIos
+            onClick={moveLeft}
+            className="absolute top-0 left-[-10px]  h-[100%] duration-200 z-400  "
+          />
+          <div
+            id="slider"
+            className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scrollbar-hide scroll-smooth "
+          >
             {data.map((item, index) => (
               <div
                 key={index}
@@ -38,6 +56,10 @@ const Carrusell = ({ title, data }) => {
               </div>
             ))}
           </div>
+          <MdArrowForwardIos
+            onClick={moveRight}
+            className="absolute top-0 right-0 bg-black/30 text-white h-[100%] ease-in duration-200  z-400"
+          />
         </div>
       </div>
     </div>

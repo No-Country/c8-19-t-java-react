@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { BsArrowRightCircle } from "react-icons/bs";
 import basicSchema from "../schemas/basicSchema";
-import { useAuthStore } from "../hooks/useAuthStore";
 
 const RegisterForm = () => {
   const { handleLogIn } = useAuthStore();
@@ -18,7 +17,7 @@ const RegisterForm = () => {
     },
     onSubmit: (values) => {
       console.log(values);
-      handleLogIn({...values});
+      handleLogIn({ ...values });
       navigate("/login");
     },
     validationSchema: basicSchema,
