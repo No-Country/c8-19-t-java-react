@@ -6,10 +6,17 @@ export const authApi = createApi({
     baseUrl: "http://localhost:3000",
   }),
   endpoints: (builder) => ({
-    fetchTopProperties: builder.query({
-      query: () => "/properties",
+    login: builder.query({
+      query: () => "/login",
+    }),
+    register: builder.mutation({
+      query: (body) => ({
+        url: "/register",
+        method: "POST",
+        body: body,
+      }),
     }),
   }),
 });
 
-export const { useFetchTopPropertiesQuery } = authApi;
+export const { useLoginQuery, useRegisterMutation } = authApi;
