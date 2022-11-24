@@ -13,7 +13,7 @@ const Home = () => {
     <div className="">
       <div className="bg-hero min-h-[40vh]  bg-cover bg-center mb-[-35px] z-10 "></div>
 
-      <div className="max-w-[1138px] mx-auto">
+      <div className=" md:container max-w-[1138px] mx-auto">
         <Search />
         <Carrusel
           title="Escapadas"
@@ -25,7 +25,7 @@ const Home = () => {
           data={data}
         />
       </div>
-      <BonusSection
+      {/* <BonusSection
         image={image24}
         title="Consigue descuentos al instante"
         description={textOne}
@@ -34,7 +34,7 @@ const Home = () => {
         image={image25}
         title="Registra tu propiedad y empieza a recibir grandes beneficios"
         description={textTwo}
-      />
+      /> */}
     </div>
   );
 };

@@ -28,7 +28,7 @@ const Carrusel = ({ title, subtitle, data }) => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
-          initialSlide: 2,
+          initialSlide: 1,
         },
       },
       {
@@ -36,6 +36,7 @@ const Carrusel = ({ title, subtitle, data }) => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
+          initialSlide: 1,
         },
       },
       {
@@ -43,6 +44,7 @@ const Carrusel = ({ title, subtitle, data }) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          initialSlide: 1,
         },
       },
     ],
@@ -56,7 +58,7 @@ const Carrusel = ({ title, subtitle, data }) => {
         {data?.map((item, index) => (
           <div
             key={index}
-            className="max-w-[260px] overflow-hidden rounded-t-xl shadow-lg "
+            className="max-w-[220px]  overflow-hidden rounded-t-xl shadow-md "
           >
             <figure className="block overflow-hidden">
               <img
@@ -66,7 +68,7 @@ const Carrusel = ({ title, subtitle, data }) => {
               />
             </figure>
             <div className="p-2">
-              <h4 className="text-slate-900 text-2xl mb-2 font-semibold">
+              <h4 className="text-slate-900 text-xl mb-2 font-semibold">
                 {item.title}
               </h4>
               <p className="text-gray-500 font-thin text-sm">
