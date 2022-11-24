@@ -11,11 +11,20 @@ module.exports = {
         "w-screen": { raw: "(min-aspect-ratio: 3/2)" },
         "t-screen": { raw: "(min-aspect-ratio: 1/2)" },
       },
+      colors: {
+        blue: "#4B84F1",
+        gray: "#ccc",
+        slate: "#333",
+        black: "#000",
+        white: "#FFF",
+      },
       container: {
         center: true,
-        padding: "7rem",
+        padding: "4rem",
+      },
+      backgroundImage: {
+        hero: "url('./img/hero.jpg')",
       },
     },
   },
-  plugins: [require("tailwind-scrollbar-hide")],
 };

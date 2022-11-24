@@ -1,57 +1,16 @@
-import { Link, useNavigate } from "react-router-dom";
-import { GrHomeRounded } from "react-icons/gr";
-import { BsPencilSquare, BsPerson, BsSearch } from "react-icons/bs";
-import { AiOutlineHeart } from "react-icons/ai";
-
 const Navbar = () => {
-
-
   return (
-    <header className=" bg-white w-full shadow-lg fixed bottom-0 px-4 z-40 ">
-      <div className="">
-        <ul className="flex gap-6 py-4 items-center justify-between  ">
-          <Link to="/" className="group flex flex-col items-center gap-1 ">
-            <GrHomeRounded className="text-3xl text-slate-900 group-hover:text-blue-300" />
-            <p className="text-gray-500 text-sm group-hover:text-slate-900 group-hover:text-semibold">
-              Home
-            </p>
-          </Link>
-          <Link
-            className="group flex flex-col items-center gap-1  ease-in duration-100"
-            to="/"
-          >
-            <BsSearch className="text-3xl text-slate-900 group-hover:text-blue-300" />
-            <p className="text-gray-500 text-sm group-hover:text-slate-900 group-hover:text-semibold">
-              Buscar
-            </p>
-          </Link>
-          <Link
-            className="group flex flex-col items-center gap-1  ease-in duration-100"
-            to="/contact"
-          >
-            <AiOutlineHeart className="text-3xl text-slate-900 group-hover:text-blue-300 " />
-            <p className="text-gray-500 text-sm group-hover:text-slate-900 group-hover:text-semibold ">
-              Publicar
-            </p>
-          </Link>
-          <Link
-            className="group flex flex-col items-center gap-1   ease-in duration-100"
-            to="/shop"
-          >
-            <BsPencilSquare className="text-3xl text-slate-900 group-hover:text-blue-300" />
-            <p className="text-gray-500 text-sm group-hover:text-slate-900 group-hover:text-semibold">
-              Favoritos
-            </p>
-          </Link>
-          <Link
-            className="group flex flex-col items-center gap-1  ease-in duration-100"
-            to="/contact"
-          >
-            <BsPerson className="text-3xl text-slate-900 hover:text-blue-300" />
-            <p className="text-gray-500 text-sm group-hover:text-slate-900 group-hover:text-semibold">
-              Perfil
-            </p>
-          </Link>
+    <header className=" bg-blue w-full shadow-lg fixed px-4 z-40 ">
+      <div className="md:container flex justify-between items-center">
+        <h1 className="text-white font-semibold text-3xl">Sunny Holidays</h1>
+        <ul className="hidden md:flex py-4  gap-2 text-blue text-sm md:text-md ">
+          <li className="rounded-md bg-white px-4 py-2">Home</li>
+          <li className="rounded-md bg-white px-4 py-2">Paisajes</li>
+          <li className="rounded-md bg-white px-4 py-2">Registrate</li>
+          <li className="rounded-md bg-white px-4 py-2">Inicia sesion</li>
+          <li className="rounded-md bg-white px-4 py-2">
+            Publica tu propiedad
+          </li>
         </ul>
       </div>
     </header>
