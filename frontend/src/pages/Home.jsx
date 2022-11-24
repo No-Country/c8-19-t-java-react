@@ -1,5 +1,5 @@
 import { useGetAllPropertiesQuery } from '../redux/api/propertiesApi';
-import Carrusell from '../components/Carrusell';
+import Carrusel from '../components/Carrusel';
 import BonusSection from '../components/BonusSection';
 import Search from '../components/Search';
 import image24 from '../img/image 24.png';
@@ -18,11 +18,15 @@ const Home = () => {
         <div>
             <div className='bg-hero min-h-[40vh]  bg-cover bg-center mb-[-35px] z-10 '></div>
 
-            <div className='md:container'>
+            <div className='max-w-[1138px] mx-auto'>
                 <Search />
-                <Carrusell
+                <Carrusel
                     title='Escapadas'
                     subtitle='Destinos en Mexico que tienne mucho para ofrecer'
+                    data={data}
+                />
+                <Carrusel
+                    title='Casas y departamentos que les encantan a los huéspedes'
                     data={data}
                 />
             </div>

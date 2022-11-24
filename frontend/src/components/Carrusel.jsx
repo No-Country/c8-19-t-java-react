@@ -49,7 +49,7 @@ const Carrusel = ({ title, subtitle, data }) => {
   };
 
   return (
-    <div className="text-center md:text-left">
+    <div className="text-center md:text-left mb-10">
       <h2 className="text-slate-900 text-2xl font-semibold mb-1">{title}</h2>
       <p className="text-gray-500 text-md mb-6">{subtitle}</p>
       <Slider {...settings}>
