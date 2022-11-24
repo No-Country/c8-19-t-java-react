@@ -40,7 +40,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin();
     }
-
+    /*
+     * .antMatchers(
+                "/**",
+                "/welcome/**",
+                "/comment/"
+        ) ejemplo muchos endpoints
+     **/
     @Bean
     public BCryptPasswordEncoder encodePwd()
     {

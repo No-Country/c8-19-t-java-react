@@ -2,6 +2,7 @@ package com.sunny.holidays.controller;
 
 import com.sunny.holidays.entity.Comment;
 import com.sunny.holidays.service.impl.CommentServiceImpl;
+import com.sunny.holidays.service.impl.PropertyServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,9 @@ public class CommentController {
     @Autowired
     private CommentServiceImpl commentService;
 
+    @Autowired
+    private PropertyServiceImpl propertyService;
+
     @GetMapping("/")
     public ResponseEntity<List<Comment>> getAll(){
         List<Comment> commentList = this.commentService.getAll();
@@ -30,8 +34,8 @@ public class CommentController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Comment> save(@RequestBody Comment client) {
-        Comment commentSaved = this.commentService.save(client);
+    public ResponseEntity<Comment> save(@RequestBody Comment comment) {
+        Comment commentSaved = this.commentService.save(comment);
         return ResponseEntity.status(HttpStatus.CREATED).body(commentSaved);
     }
 
