@@ -8,7 +8,7 @@ const Home = () => {
   console.log(data);
 
   return (
-    <div className="">
+    <div className="overflow-x-hidden">
       <div className="bg-hero min-h-[40vh]  bg-cover bg-center mb-[-35px] z-10 "></div>
 
       <div className="md:container">

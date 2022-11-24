@@ -1,3 +1,5 @@
+import { AiOutlineMenu } from "react-icons/ai";
+
 const Navbar = () => {
   return (
     <header className=" bg-blue w-full shadow-lg fixed px-4 z-40 ">
@@ -12,6 +14,9 @@ const Navbar = () => {
             Publica tu propiedad
           </li>
         </ul>
+        <div className="md:hidden text-white">
+          <AiOutlineMenu />
+        </div>
       </div>
     </header>
   );
