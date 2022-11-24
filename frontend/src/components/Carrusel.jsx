@@ -7,7 +7,6 @@ import { HiOutlineOfficeBuilding } from "react-icons/hi";
 const Carrusel = ({ title, subtitle, data }) => {
   console.log(data);
   const settings = {
-    dots: true,
     infinite: true,
     lazyLoad: true,
     speed: 500,
@@ -58,7 +57,7 @@ const Carrusel = ({ title, subtitle, data }) => {
         {data?.map((item, index) => (
           <div
             key={index}
-            className="max-w-[220px]  overflow-hidden rounded-t-xl shadow-md "
+            className="max-w-full  sm:max-w-[220px]  overflow-hidden rounded-t-xl shadow-md "
           >
             <figure className="block overflow-hidden">
               <img
