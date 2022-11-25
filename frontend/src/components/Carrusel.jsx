@@ -50,24 +50,24 @@ const Carrusel = ({ title, subtitle, data }) => {
   };
 
   return (
-    <div className="text-center md:text-left mb-10">
+    <div className="mb-10">
       <h2 className="text-slate-900 text-2xl font-semibold mb-1">{title}</h2>
       <p className="text-gray-500 text-md mb-6">{subtitle}</p>
       <Slider {...settings}>
         {data?.map((item, index) => (
           <div
             key={index}
-            className="max-w-full  sm:max-w-[220px]  overflow-hidden rounded-t-xl shadow-md "
+            className=" md:max-w-[220px]  lg:max-w-[260px] overflow-hidden rounded-t-xl"
           >
             <figure className="block overflow-hidden">
               <img
-                className=" w-full  hover:scale-[1.2] duration-500"
+                className=" w-full md:h-[200px] lg:h-[220px] object-cover hover:scale-[1.2] duration-500"
                 src={item.url}
                 alt={item.title}
               />
             </figure>
             <div className="p-2">
-              <h4 className="text-slate-900 text-xl mb-2 font-semibold">
+              <h4 className="text-slate-900 text-xl mb-1 font-semibold">
                 {item.title}
               </h4>
               <p className="text-gray-500 font-thin text-sm">

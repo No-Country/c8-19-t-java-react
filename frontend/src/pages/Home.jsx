@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
     <div className="">
-      <div className="bg-hero overflow-x-hidden  min-h-[50vh]  bg-cover bg-center mb-[-35px] z-10 "></div>
+      <div className="bg-hero  min-h-[60vh]  bg-cover bg-center mb-[-35px] z-10 "></div>
 
       <div className=" px-[1rem] md:container mx-auto">
         <Search />
