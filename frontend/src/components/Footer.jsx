@@ -5,7 +5,7 @@ import{AiFillTwitterCircle, AiFillInstagram} from 'react-icons/ai'
 const Footer = () => {
     return (
         <div className='w-full py-10 border-t border-[#4B84F1]'>
-            <div className='max-w-[1138px] mx-auto flex justify-between items-top'>
+            <div className='md:container flex justify-between items-top'>
                 <div>
                     <h3 className='text-[15px] text-[#4B84F1] font-medium'>
                         Servicio al cliente

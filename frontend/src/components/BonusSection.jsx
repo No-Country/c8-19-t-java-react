@@ -2,7 +2,7 @@
 
 const BonusSection = ({image, title, description}) => {
     return (
-        <div className='max-w-[1138px] mx-auto mb-6 border border-[#979797] flex'>
+        <div className='mb-6 border border-[#979797] flex'>
             <img src={image} alt='imagen descuentos' className='pl-2.5 pr-3 py-5' />
             <div className='pt-5'>
               <h3 className='text-lg font-medium text-[#515252]'>{title}</h3>

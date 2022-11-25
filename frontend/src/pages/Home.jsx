@@ -15,10 +15,10 @@ const Home = () => {
         'Registra tu propiedad y ponla en alquiler o en opción de reservación, todo en SunnyHoliday.';
 
     return (
-        <div>
+        <div className=''>
             <div className='bg-hero min-h-[40vh]  bg-cover bg-center mb-[-35px] z-10 '></div>
 
-            <div className='max-w-[1138px] mx-auto'>
+            <div className='md:container'>
                 <Search />
                 <Carrusel
                     title='Escapadas'
@@ -29,7 +29,6 @@ const Home = () => {
                     title='Casas y departamentos que les encantan a los huéspedes'
                     data={data}
                 />
-            </div>
             <BonusSection
                 image={image24}
                 title='Consigue descuentos al instante'
@@ -40,6 +39,7 @@ const Home = () => {
                 title='Registra tu propiedad y empieza a recibir grandes beneficios'
                 description={textTwo}
             />
+            </div>
         </div>
     );
 };
