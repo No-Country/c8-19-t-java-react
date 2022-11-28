@@ -1,5 +1,6 @@
 package com.sunny.holidays.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,6 +25,11 @@ public class Property {
 
     @OneToMany(mappedBy = "property", cascade = CascadeType.MERGE)
     private Set<Reservation> reservations = new HashSet<>();
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "property_type_id")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private PropertyType propertyType;
 
     public Set<Comment> getComments() {
         return comments;
