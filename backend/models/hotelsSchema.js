@@ -1,4 +1,22 @@
 import mongoose, { Schema, model } from "mongoose";
+import { reviewSchema } from "./reviewSchema.js";
+
+const roomSchema = new Schema(
+  {
+    title: {
+      type: String,
+    },
+    pictures: {
+      type: [String],
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
+    roomNumber: [{ number: Number, unavailableDates: { type: [Date] } }],
+  },
+  { timestamps: true }
+);
 
 const hotelSchema = new Schema({
   title: {
@@ -19,6 +37,7 @@ const hotelSchema = new Schema({
     type: Number,
     default: 0,
   },
+  reviews: [reviewSchema],
   services: {
     type: Schema.Types.Mixed,
   },
@@ -29,4 +48,4 @@ const hotelSchema = new Schema({
   },
 });
 
-const Hotel = model("Hotel", hotelSchema);
+export const Hotel = model("Hotel", hotelSchema);

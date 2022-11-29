@@ -1,10 +1,9 @@
 import { Schema, model } from "mongoose";
 
-export const reviewSchema = Schema(
+export const reviewSchema = new Schema(
   {
     username: {
       type: { type: Schema.Types.ObjectId, ref: "User" },
-      required: true,
     },
     pictures: {
       type: [String],
