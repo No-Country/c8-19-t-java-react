@@ -1,17 +1,17 @@
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import { authApi } from "./api/authApi";
-import { propertiesApi } from "./api/propertiesApi";
+import { hotelsApi } from "./api/hotelsApi";
 
 const store = configureStore({
   reducer: {
     [authApi.reducerPath]: authApi.reducer,
-    [propertiesApi.reducerPath]: propertiesApi.reducer,
+    [hotelsApi.reducerPath]: hotelsApi.reducer,
   },
   middleware: (getDefaultMiddleware) => {
     return getDefaultMiddleware().concat(authApi.middleware);
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(propertiesApi.middleware);
+    return getDefaultMiddleware().concat(hotelsApi.middleware);
   },
 });
 

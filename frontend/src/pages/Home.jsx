@@ -1,4 +1,4 @@
-import { useGetAllPropertiesQuery } from "../redux/api/propertiesApi";
+import { useGetAllHotelsQuery } from "../redux/api/hotelsApi";
 import Carrusel from "../components/Carrusel";
 import BonusSection from "../components/BonusSection";
 import Search from "../components/Search";
@@ -6,8 +6,8 @@ import image24 from "../img/image 24.png";
 import image25 from "../img/image 25.png";
 
 const Home = () => {
-  const { data } = useGetAllPropertiesQuery();
-  console.log(data);
+  const { data } = useGetAllHotelsQuery();
+  console.log(data?.hotels);
 
   const textOne =
     "Ahorra, iniciando sesión en tu cuenta de SunnyHoliday y encontrarás grandes descuentos.";
@@ -23,12 +23,12 @@ const Home = () => {
         <Carrusel
           title="Escapadas"
           subtitle="Destinos en Mexico que tienne mucho para ofrecer"
-          data={data}
+          data={data?.hotels}
         />
         <Carrusel
           title="Casas y departamentos que les encantan a los huéspedes"
           subtitle="Encuentra tu lugar soñado para vacacionar"
-          data={data}
+          data={data?.hotels}
         />
         <BonusSection
           image={image24}

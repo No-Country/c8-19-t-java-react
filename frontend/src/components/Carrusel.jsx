@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { AiFillStar } from "react-icons/ai";
 import { HiOutlineOfficeBuilding } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 const Carrusel = ({ title, subtitle, data }) => {
   console.log(data);
@@ -55,26 +56,25 @@ const Carrusel = ({ title, subtitle, data }) => {
       <p className="text-gray-500 text-md mb-6">{subtitle}</p>
       <Slider {...settings}>
         {data?.map((item, index) => (
-          <div
-            key={index}
-            className=" md:max-w-[220px]  lg:max-w-[260px] overflow-hidden rounded-t-xl"
-          >
-            <figure className="block overflow-hidden">
-              <img
-                className=" w-full md:h-[200px] lg:h-[220px] object-cover hover:scale-[1.2] duration-500"
-                src={item.url}
-                alt={item.title}
-              />
-            </figure>
-            <div className="p-2">
-              <h4 className="text-slate-900 text-xl mb-1 font-semibold">
-                {item.title}
-              </h4>
-              <p className="text-gray-500 font-thin text-sm">
-                {item.amount} lugares para reservar
-              </p>
+          <Link to={`/${item._id}`} key={index}>
+            <div className=" md:max-w-[220px]  lg:max-w-[260px] overflow-hidden rounded-t-xl">
+              <figure className="block overflow-hidden">
+                <img
+                  className=" w-full md:h-[200px] lg:h-[220px] object-cover hover:scale-[1.2] duration-500"
+                  src={item.pictures[0]}
+                  alt={item.title}
+                />
+              </figure>
+              <div className="p-2">
+                <h4 className="text-slate-900 text-xl mb-1 font-semibold">
+                  {item.title}
+                </h4>
+                <p className="text-gray-500 font-thin text-sm">
+                  {item.amount} lugares para reservar
+                </p>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </Slider>
     </div>
