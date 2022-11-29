@@ -25,7 +25,7 @@ const hotels = [
     rooms: [
       {
         title: "suite ejecutiva",
-        picture: [
+        pictures: [
           "https://i.travelapi.com/hotels/1000000/550000/547000/546934/e2ab3a82_z.jpg",
           "https://i.travelapi.com/hotels/1000000/550000/547000/546934/cf7ef581_z.jpg",
         ],
@@ -36,7 +36,7 @@ const hotels = [
   {
     title: "Up Tribe Hotel",
     price: 96,
-    picture: [
+    pictures: [
       "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1649456843/dpeuf4olnlyzobhsel3e.jpg",
       "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1649456843/ataduy96m2oeqkzmeolt.jpg",
       "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1649456843/ydlphajr9hbqrhplaupm.jpg",
@@ -59,7 +59,7 @@ const hotels = [
     rooms: [
       {
         title: "doble standard",
-        picture: [
+        pictures: [
           "https://photos.hotelbeds.com/giata/xxl/05/057938/057938a_hb_ro_025.jpg",
           "https://photos.hotelbeds.com/giata/xxl/05/057938/057938a_hb_ro_037.jpg",
         ],
@@ -67,7 +67,7 @@ const hotels = [
       },
       {
         title: "superior triple room",
-        picture: [
+        pictures: [
           "https://photos.hotelbeds.com/giata/bigger/07/077698/077698a_hb_ro_024.jpg",
           "https://photos.hotelbeds.com/giata/bigger/07/077698/077698a_hb_ro_025.jpg",
         ],
@@ -78,7 +78,7 @@ const hotels = [
   {
     title: "Bisonte Libertad",
     price: 98,
-    picture: [
+    pictures: [
       "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1504870332/kyoiernjb5ljod6eig8p.jpg",
       "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1541994881/w5knxfd5kmhdmq93dtv9.jpg",
       "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1541994882/qhgjgkog08yl3fmqevyg.jpg",
@@ -101,7 +101,7 @@ const hotels = [
     rooms: [
       {
         title: "double standard",
-        picture: [
+        pictures: [
           "https://photos.hotelbeds.com/giata/xxl/05/057942/057942a_hb_ro_016.jpg",
           "https://photos.hotelbeds.com/giata/xxl/05/057942/057942a_hb_ro_018.jpg",
         ],
@@ -109,7 +109,7 @@ const hotels = [
       },
       {
         title: "double superior",
-        picture: [
+        pictures: [
           "https://photos.hotelbeds.com/giata/xxl/05/057942/057942a_hb_ro_013.jpg",
           "https://photos.hotelbeds.com/giata/xxl/05/057942/057942a_hb_ro_014.jpg",
         ],
@@ -120,7 +120,7 @@ const hotels = [
   {
     title: "Poetry Building",
     price: 250,
-    picture: [
+    pictures: [
       "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1632520412/xaois6atdnpvtq3qhzpw.jpg",
       "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1632520412/wquh6uufst5prqgvl22w.jpg",
       "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1558551298/ldhgfoawksmsqqt4eyzk.jpg",
@@ -143,7 +143,7 @@ const hotels = [
     rooms: [
       {
         title: "triple standard",
-        picture: [
+        pictures: [
           "https://i.travelapi.com/hotels/5000000/4100000/4099900/4099826/d23db5d3_z.jpg",
           "https://i.travelapi.com/hotels/5000000/4100000/4099900/4099826/d23db5d3_z.jpg",
         ],
@@ -154,7 +154,7 @@ const hotels = [
   {
     title: "Regal Pacific Buenos Aires",
     price: 220,
-    picture: [
+    pictures: [
       "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1632213800/fld1icnt2hcljec4tirt.jpg",
       "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1632213800/kxdzljg1grw4djxgybj5.jpg",
       "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1632213801/zq1jrah9kt8ckvxr0rc2.jpg",
@@ -177,7 +177,7 @@ const hotels = [
     rooms: [
       {
         title: "superior double room",
-        picture: [
+        pictures: [
           "https://photos.hotelbeds.com/giata/xxl/07/077101/077101a_hb_ro_025.jpg",
           "https://photos.hotelbeds.com/giata/xxl/07/077101/077101a_hb_ro_027.jpg",
         ],
