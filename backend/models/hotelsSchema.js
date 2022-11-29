@@ -19,6 +19,10 @@ const hotelSchema = new Schema({
     type: Schema.Types.Mixed,
   },
   rooms: [roomSchema],
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 const Hotel = model("Hotel", hotelSchema);
