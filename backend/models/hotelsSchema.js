@@ -15,6 +15,10 @@ const hotelSchema = new Schema({
   description: {
     type: String,
   },
+  rating: {
+    type: Number,
+    default: 0,
+  },
   services: {
     type: Schema.Types.Mixed,
   },
