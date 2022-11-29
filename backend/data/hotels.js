@@ -1,14 +1,14 @@
 const hotels = [
   {
-    title: "Claridge Hotel",
-    price: 100,
-    picture: [
-      "https://res.cloudinary.com/lastminute/image/upload/w_500,h_350,c_fill,q_auto,f_auto/t7xdobkhzpqdtu9xcirl.jpg",
-      "https://vuelo-hotel.viajar.com/details/hotel/Claridge-Hotel-Buenos-Aires-112559/hotel-only?search.departureIntervals=20221201-20221215&bf_subsource=S01HPV10S10RR01&search.accomodationOnly=true&search.type=OSE&search.destinationCities=155671&search.rooms%5B0%5D.adults=2&search.rooms%5B0%5D.children=0&hdpSearchId=1h7g4mm243u9s&businessProfileId=VIAJAR&searchId=127219515&referenceEventId=1h7g4mm243u9s8131ez&requestId=3372263618&sessionId=7003181547768809472&extReferenceType=OSE&extReferenceId=1h7g4mm243u9s#hotel-gallery",
-      "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1537755558/diajcwebzbvaoshkszlk.jpg",
-      "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1537755562/bhzyk16nsftvnb6o9xil.jpg",
-      "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1537755558/eddpmho3vz8vzqgl2kmu.jpg",
-      "https://vuelo-hotel.viajar.com/details/hotel/Claridge-Hotel-Buenos-Aires-112559/hotel-only?search.departureIntervals=20221201-20221215&bf_subsource=S01HPV10S10RR01&search.accomodationOnly=true&search.type=OSE&search.destinationCities=155671&search.rooms%5B0%5D.adults=2&search.rooms%5B0%5D.children=0&hdpSearchId=1h7g4mm243u9s&businessProfileId=VIAJAR&searchId=127219515&referenceEventId=1h7g4mm243u9s8131ez&requestId=3372263618&sessionId=7003181547768809472&extReferenceType=OSE&extReferenceId=1h7g4mm243u9s#hotel-gallery",
+    title: "Hilton Buenos Aires, AR",
+    price: 500,
+    pictures: [
+      "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1667229769/ngoqluwsvariln9zwmc4.jpg",
+      "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1508094584/fekjr2wo7ghnonhujrbk.jpg",
+      "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1505108419/frgtfqd5aydbzu76lcvq.jpg",
+      "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1667229768/jbwddzultozznmepafrt.jpg",
+      "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1667229768/e5uw1h11hjap8sha4ydi.jpg",
+      "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1667229769/xtslho4jewwb71enfeyj.jpg",
     ],
 
     services: {
@@ -24,20 +24,12 @@ const hotels = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui officiis maiores deserunt magni aliquam dolores, consequuntur eveniet ratione? Velit dolores vitae, praesentium ipsum facere quos id molestiae quia necessitatibus maxime magnam voluptates sequi, officiis, natus dignissimos placeat minus laborum. Ipsa fugit eligendi quis autem alias omnis sit quas iure dolorem voluptas aliquam architecto iusto cupiditate animi quisquam minima vel voluptatem fuga, at nihil. Cupiditate enim hic at veritatis magnam dolorem officia qui tenetur in earum repellat, expedita quidem numquam maxime pariatur adipisci perspiciatis dicta porro aspernatur itaque cum voluptatibus voluptas animi. Quae tempore fugit quaerat minus temporibus ducimus eligendi. Sunt!",
     rooms: [
       {
-        title: "superior double room",
+        title: "suite ejecutiva",
         picture: [
-          "https://photos.hotelbeds.com/giata/bigger/07/077698/077698a_hb_ro_027.jpg",
-          "https://photos.hotelbeds.com/giata/bigger/07/077698/077698a_hb_ro_028.jpg",
+          "https://i.travelapi.com/hotels/1000000/550000/547000/546934/e2ab3a82_z.jpg",
+          "https://i.travelapi.com/hotels/1000000/550000/547000/546934/cf7ef581_z.jpg",
         ],
-        price: 100,
-      },
-      {
-        title: "superior triple room",
-        picture: [
-          "https://photos.hotelbeds.com/giata/bigger/07/077698/077698a_hb_ro_024.jpg",
-          "https://photos.hotelbeds.com/giata/bigger/07/077698/077698a_hb_ro_025.jpg",
-        ],
-        price: 122,
+        price: 500,
       },
     ],
   },
