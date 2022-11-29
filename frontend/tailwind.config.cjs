@@ -12,6 +12,9 @@ module.exports = {
         "t-screen": { raw: "(min-aspect-ratio: 1/2)" },
       },
       colors: {
+        orange: "#FCDB8A",
+        red: '#E30058',
+        lightRed: '#FFE9EB',
         blue: "#4B84F1",
         gray: "#ccc",
         slate: "#333",

@@ -22,8 +22,6 @@ const Search = () => {
     amount: "",
   });
 
-  const [currency, setCurrency] = useState("EUR");
-
   const handleChange = (e) => {
     setsearchInputs({ ...searchInputs, [e.target.name]: e.target.value });
   };
@@ -37,7 +35,7 @@ const Search = () => {
     <div className="md:block z-20 mb-10">
       <form className=" bg-white shadow-md rounded-md px-6 py-2 m-2 ">
         <div className="grid bg-slate-200 items-center grid-cols-2 sm:grid-cols-4 gap-2 md:grid-cols-4">
-          <div className="relative col-span-2  md:col-span-1 ">
+          <div className="relative col-span-2  md:col-span-1 border-2 border-orange ">
             <TextField
               id="outlined-basic"
               label="Busca tu destino"
@@ -50,10 +48,10 @@ const Search = () => {
             <BsSearch className="absolute  right-4 top-[35%]" />
           </div>
 
-          <div className="relative col-span-2 md:col-span-1 w-full ">
+          <div className="relative col-span-2 md:col-span-1 w-full border-2 border-orange ">
             <InputCalendar value={searchInputs.date} />
           </div>
-          <div className="relative col-span-2 md:col-span-1  ">
+          <div className="relative col-span-2 md:col-span-1 border-2 border-orange  ">
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Age</InputLabel>
               <Select
