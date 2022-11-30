@@ -1,7 +1,7 @@
 //crear controllers encargados del login y registro
 import User from "../models/userSchema.js";
 import bcrypt from "bcrypt";
-import generateToken from "../helpers/token-validation.js";
+import generateToken from "../helpers/token-volidation";
 import axios from "axios";
 import { response } from "express";
 
