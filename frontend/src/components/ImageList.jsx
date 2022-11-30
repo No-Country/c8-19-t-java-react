@@ -3,72 +3,33 @@ import PicturesModal from "./PicturesModal";
 
 const ImageList = ({ pictures }) => {
   const [modal, setModal] = useState(false);
+  const [index, setIndex] = useState(0);
 
-  console.log(modal);
+  const handleModal = (index) => {
+    setIndex(index);
+    setModal(true);
+  };
 
   return (
     <div className="relative">
-      {modal && <PicturesModal setModal={setModal} pictures={pictures} />}
-      <div className=" grid grid-cols-2  md:grid-cols-6 auto-rows-[160px] gap-2 py-8">
-        <figure
-          onClick={() => setModal(true)}
-          className="col-span-2 row-span-2"
-        >
-          <img
-            className="object-cover h-full w-full"
-            src={pictures[0]}
-            alt={pictures[0]}
-          />
-        </figure>
-        <figure onClick={() => setModal(true)}>
-          <img
-            className="object-cover h-full w-full"
-            src={pictures[1]}
-            alt={pictures[1]}
-          />
-        </figure>
-        <figure onClick={() => setModal(true)}>
-          <img
-            className="object-cover h-full w-full"
-            src={pictures[2]}
-            alt={pictures[2]}
-          />
-        </figure>
-        <figure onClick={() => setModal(true)}>
-          <img
-            className="object-cover h-full w-full"
-            src={pictures[3]}
-            alt={pictures[3]}
-          />
-        </figure>
-        <figure onClick={() => setModal(true)}>
-          <img
-            className="object-cover h-full w-full"
-            src={pictures[4]}
-            alt={pictures[4]}
-          />
-        </figure>
-        <figure onClick={() => setModal(true)} className="col-span-2">
-          <img
-            className="object-cover w-full h-full"
-            src={pictures[5]}
-            alt={pictures[5]}
-          />
-        </figure>
-        <figure onClick={() => setModal(true)}>
-          <img
-            className="object-cover h-full w-full"
-            src={pictures[6]}
-            alt={pictures[6]}
-          />
-        </figure>
-        <figure onClick={() => setModal(true)}>
-          <img
-            className="object-cover h-full w-full"
-            src={pictures[7]}
-            alt={pictures[7]}
-          />
-        </figure>
+      {modal && (
+        <PicturesModal
+          pictures={pictures}
+          index={index}
+          setModal={setModal}
+          setIndex={setIndex}
+        />
+      )}
+      <div className="contenedor grid grid-cols-2 md:grid-cols-6 auto-rows-[160px] gap-2 py-8">
+        {pictures.map((picture, index) => (
+          <figure onClick={() => handleModal(index)}>
+            <img
+              className="object-cover h-full w-full"
+              src={picture}
+              alt={picture}
+            />
+          </figure>
+        ))}
       </div>
     </div>
   );

@@ -2,11 +2,7 @@ import { useState } from "react";
 import { RiDeleteBack2Fill } from "react-icons/ri";
 import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
 
-const PicturesModal = ({ pictures, setModal }) => {
-  const [index, setIndex] = useState(0);
-
-  console.log(index);
-
+const PicturesModal = ({ pictures, setModal, index, setIndex }) => {
   const handleModalForward = () => {
     setIndex((prev) => prev + 1);
   };
