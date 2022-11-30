@@ -12,10 +12,12 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import PlaceDetails from "./pages/PlaceDetails";
 import "./index.css";
+import ScrollToTop from "./components/ScrollToTop";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Provider store={store}>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />

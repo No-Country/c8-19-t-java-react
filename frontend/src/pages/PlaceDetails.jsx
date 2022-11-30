@@ -24,16 +24,14 @@ const PlaceDetails = () => {
 
   return (
     <div className="px-[1rem] md:container pt-20 md:pt-28">
-      <Search />
-
       <div className="flex items-baseline">
         <h2 className="text-3xl text-black ">{data?.findHotel?.title}</h2>
         <div className="flex gap-1 pl-5">
-          <AiFillStar className="text-orange-400" />
-          <AiFillStar className="text-orange-400" />
-          <AiFillStar className="text-orange-400" />
-          <AiFillStar className="text-orange-400" />
-          <AiFillStar className="text-orange-400" />
+          <AiFillStar className="text-orange" />
+          <AiFillStar className="text-orange" />
+          <AiFillStar className="text-orange" />
+          <AiFillStar className="text-orange" />
+          <AiFillStar className="text-orange" />
         </div>
       </div>
       <p className="text-sm text-slate pt-2.5">
@@ -44,7 +42,7 @@ const PlaceDetails = () => {
       <h3 className="text-lg text-slate mb-8">
         Elige tu habitación en Fiesta Inn Oaxaca
       </h3>
-      {/* <RoomCard data={data?.findHotel} /> */}
+      <RoomCard data={data?.findHotel?.rooms} />
       <Comments />
     </div>
   );
