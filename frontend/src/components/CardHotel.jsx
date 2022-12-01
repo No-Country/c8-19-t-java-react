@@ -36,7 +36,7 @@ const CardHotel = ({ hotel }) => {
         </div>
         <div className="flex flex-col justify-between items-end h-full">
           <button className="bg-white shadow-md  p-1 w-[50px] h-[50px] flex justify-center items-center rounded-full">
-            <AiOutlineHeart className=" text-slate text-2xl font-thin" />
+            <AiOutlineHeart className=" text-slate/40 text-2xl font-thin" />
           </button>
           <button className="bg-blue self-end hover:bg-blue/75 duration-300  text-white capitalize font-semibold w-[200px] rounded-xl p-4">
             ver disponibilidad
