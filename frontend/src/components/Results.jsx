@@ -24,7 +24,7 @@ const Results = () => {
         </div>
       </div>
       {data?.hotels.map((hotel) => (
-        <Link to={`/${hotel._id}`}>
+        <Link key={hotel._id} to={`/${hotel._id}`}>
           <CardHotel key={hotel._id} hotel={hotel} />
         </Link>
       ))}

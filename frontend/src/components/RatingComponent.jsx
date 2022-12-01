@@ -31,6 +31,7 @@ export default function RatingComponent({ value, setValue, hover, setHover }) {
     >
       <Rating
         name="hover-feedback"
+        readOnly
         value={value}
         precision={0.5}
         getLabelText={getLabelText}

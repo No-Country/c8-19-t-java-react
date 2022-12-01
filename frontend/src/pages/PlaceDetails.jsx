@@ -5,7 +5,7 @@ import Search from "../components/Search";
 import ImageList from "../components/ImageList";
 import RoomCard from "../components/RoomCard";
 import Comments from "../components/Comments";
-import { CircularProgress } from "@mui/material";
+import { CircularProgress, Rating } from "@mui/material";
 import { useParams } from "react-router-dom";
 
 const PlaceDetails = () => {
@@ -25,15 +25,17 @@ const PlaceDetails = () => {
   return (
     <div className="px-[1rem] pt-20 md:pt-28">
       <div className="md:container">
-        <div className="flex items-baseline">
-          <h2 className="text-3xl text-black ">{data?.findHotel?.title}</h2>
-          <div className="flex gap-1 pl-5">
-            <AiFillStar className="text-orange" />
-            <AiFillStar className="text-orange" />
-            <AiFillStar className="text-orange" />
-            <AiFillStar className="text-orange" />
-            <AiFillStar className="text-orange" />
-          </div>
+        <div className="flex items-center gap-4 ">
+          <h2 className="text-3xl text-black font-semibold ">
+            {data?.findHotel?.title}
+          </h2>
+          <Rating
+            name="read-only"
+            sx={{ fontSize: "2rem", color: "#FCDB8A" }}
+            value={data?.findHotel.rating}
+            precision={0.5}
+            readOnly
+          />
         </div>
         <p className="text-sm text-slate pt-2.5">
           Habitación por noche desde{" "}
