@@ -16,6 +16,8 @@ app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/hotels", hotelRouter);
 
+
+
 app.listen(PORT, () => {
   console.log(`servidor escuchando al puerto ${PORT}`);
 });
