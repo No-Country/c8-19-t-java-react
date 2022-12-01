@@ -22,9 +22,12 @@ const ImageList = ({ pictures }) => {
       )}
       <div className="contenedor grid grid-cols-2 md:grid-cols-6 auto-rows-[160px] gap-2 py-8">
         {pictures.map((picture, index) => (
-          <figure onClick={() => handleModal(index)}>
+          <figure
+            className="overflow-hidden rounded-xl"
+            onClick={() => handleModal(index)}
+          >
             <img
-              className="object-cover h-full w-full"
+              className="object-cover h-full w-full hover:scale-110 duration-300 "
               src={picture}
               alt={picture}
             />
