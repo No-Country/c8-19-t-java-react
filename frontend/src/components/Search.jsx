@@ -12,10 +12,12 @@ import {
   Select,
   TextField,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const persons = [1, 2, 3, 4];
 
 const Search = () => {
+  const navigate = useNavigate();
   const [searchInputs, setsearchInputs] = useState({
     location: "",
     date: new Date(),
@@ -29,6 +31,7 @@ const Search = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(searchInputs);
+    navigate("/resultsPage");
   };
 
   return (

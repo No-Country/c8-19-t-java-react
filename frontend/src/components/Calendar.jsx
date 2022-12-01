@@ -5,6 +5,8 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { useState } from "react";
 
 const Calendar = ({ date }) => {
+  const [value, setValue] = useState(0);
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker

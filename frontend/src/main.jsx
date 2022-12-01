@@ -13,6 +13,7 @@ import Register from "./pages/Register";
 import PlaceDetails from "./pages/PlaceDetails";
 import "./index.css";
 import ScrollToTop from "./components/ScrollToTop";
+import ResultsPage from "./pages/ResultsPage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
+          <Route path="/resultsPage" element={<ResultsPage />} />
 
           {/* Ruta protegida */}
           <Route element={<ProtectedRoute />}>
