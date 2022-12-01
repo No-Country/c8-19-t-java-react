@@ -8,7 +8,7 @@ const insertHotels = async (req, res) => {
   });
 };
 
-const getAllHotels = async (req, res) => {
+const getHotels = async (req, res) => {
   try {
     const hotels = await Hotel.find({});
 
@@ -44,4 +44,4 @@ const getHotel = async (req, res) => {
   }
 };
 
-export { insertHotels, getAllHotels, getHotel };
+export { insertHotels, getHotels, getHotel };
