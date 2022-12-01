@@ -44,4 +44,4 @@ const getHotel = async (req, res) => {
   }
 };
 
-export { insertHotels, getHotels, getHotel };
+export { insertHotels, getAllHotels, getHotel };
