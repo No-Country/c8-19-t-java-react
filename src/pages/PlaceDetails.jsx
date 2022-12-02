@@ -1,4 +1,4 @@
-import { useGetHotelQuery } from "../redux/api/hotelsApi";
+import { useGetHotelQuery } from "../redux/api/sunnyApi";
 import { AiFillStar, AiOutlineWifi } from "react-icons/ai";
 
 import Search from "../components/Search";

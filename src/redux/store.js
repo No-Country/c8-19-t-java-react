@@ -1,17 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { authApi } from "./api/authApi";
-import { hotelsApi } from "./api/hotelsApi";
+import { sunnyApi } from "./api/sunnyApi";
+import authSlice from "./slices/authSlice";
 
 const store = configureStore({
   reducer: {
-    [authApi.reducerPath]: authApi.reducer,
-    [hotelsApi.reducerPath]: hotelsApi.reducer,
+    [sunnyApi.reducerPath]: sunnyApi.reducer,
+    auth: authSlice,
   },
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(authApi.middleware);
-  },
-  middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat(hotelsApi.middleware);
+    return getDefaultMiddleware().concat(sunnyApi.middleware);
   },
 });
 

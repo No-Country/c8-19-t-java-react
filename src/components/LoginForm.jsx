@@ -1,16 +1,38 @@
 import { useFormik } from "formik";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { BsArrowRightCircle } from "react-icons/bs";
-import { useSignInMutation } from "../redux/api/authApi";
+import { useSignInMutation } from "../redux/api/sunnyApi";
 import { CircularProgress } from "@mui/material";
+import { toast } from "react-toastify";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setCredentials } from "../redux/slices/authSlice";
 
 const LoginForm = () => {
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const auth = useSelector((state) => state.auth);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const [signIn, { data, isLoading }] = useSignInMutation();
+  const [signIn, { data, isLoading, error }] = useSignInMutation();
 
-  console.log(data);
+  useEffect(() => {
+    if (data?.token) {
+      dispatch(setCredentials(data));
+      toast.success("logeado correctamente");
+    }
+    if (error?.status === 401) {
+      toast.error(error.data.msg);
+    }
+
+    if (auth?.token) navigate(from);
+  }, [data, error]);
+
+  useEffect(() => {
+    if (auth?.token) navigate(from);
+  }, [auth]);
 
   const { handleSubmit, getFieldProps } = useFormik({
     initialValues: {
@@ -18,10 +40,10 @@ const LoginForm = () => {
       password: "",
     },
     onSubmit: async (values) => {
-      console.log(values);
-      await signIn(values);
-      if (data?.token) {
-        navigate("/");
+      try {
+        await signIn(values);
+      } catch (error) {
+        console.log(error);
       }
     },
   });
@@ -74,7 +96,7 @@ const LoginForm = () => {
                   />
                 ) : (
                   <div className="flex items-center gap-2 ">
-                    Register
+                    Ingresar
                     <BsArrowRightCircle />
                   </div>
                 )}

@@ -3,36 +3,39 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { BsArrowRightCircle } from "react-icons/bs";
 import basicSchema from "../schemas/basicSchema";
-import { useSignUpMutation } from "../redux/api/authApi";
+import { useSignUpMutation } from "../redux/api/sunnyApi";
 import { CircularProgress } from "@mui/material";
+import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 const RegisterForm = () => {
   const navigate = useNavigate();
 
-  const [signUp, { data, isLoading, isError }] = useSignUpMutation();
+  const [signUp, { data, error, isLoading }] = useSignUpMutation();
 
-  console.log(data);
+  useEffect(() => {
+    console.log(error);
+    if (data?.user) {
+      navigate("/login");
+    }
 
-  console.log(isError);
+    if (error?.status === 401) {
+      toast.error(error?.data?.msg);
+    }
+  }, [data, error]);
 
   const { handleSubmit, errors, touched, getFieldProps } = useFormik({
     initialValues: {
-      userName: "",
+      name: "",
       email: "",
       password: "",
       confirmPassword: "",
     },
     onSubmit: async (values) => {
       await signUp(values);
-      if (data?.user) {
-        console.log("cambiar");
-        navigate("/signIn");
-      }
     },
     validationSchema: basicSchema,
   });
-
-  console.log(errors);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray ">
@@ -50,7 +53,7 @@ const RegisterForm = () => {
             </label>
             <input
               type="name"
-              className={`text-sm  placeholder-gray pl-3 pr-4 rounded-2xl border border-gray w-full py-2 focus:outline-none focus:border-blue ${
+              className={`text-sm  placeholder-gray pl-3 pr-4 rounded-md border border-gray w-full py-2 focus:outline-none focus:border-blue ${
                 errors.name ? "border-red" : ""
               }`}
               {...getFieldProps("name")}
@@ -68,7 +71,7 @@ const RegisterForm = () => {
             </label>
             <input
               type="email"
-              className={`text-sm  placeholder-gray pl-3 pr-4 rounded-2xl border border-gray w-full py-2 focus:outline-none focus:border-blue ${
+              className={`text-sm  placeholder-gray pl-3 pr-4 rounded-md border border-gray w-full py-2 focus:outline-none focus:border-blue ${
                 errors.email ? "border-red" : ""
               }`}
               {...getFieldProps("email")}
@@ -87,7 +90,7 @@ const RegisterForm = () => {
             </label>
             <input
               type="password"
-              className={`text-sm  placeholder-gray pl-3 pr-4 rounded-2xl border border-gray w-full py-2 focus:outline-none focus:border-blue ${
+              className={`text-sm  placeholder-gray pl-3 pr-4 rounded-md border border-gray w-full py-2 focus:outline-none focus:border-blue ${
                 errors.userName ? "border-red" : ""
               }`}
               {...getFieldProps("password")}
@@ -106,7 +109,7 @@ const RegisterForm = () => {
             </label>
             <input
               type="password"
-              className={`text-sm  placeholder-gray pl-3 pr-4 rounded-2xl border border-gray w-full py-2 focus:outline-none focus:border-blue ${
+              className={`text-sm  placeholder-gray pl-3 pr-4 rounded-md border border-gray w-full py-2 focus:outline-none focus:border-blue ${
                 errors.userName ? "border-red" : ""
               }`}
               {...getFieldProps("confirmPassword")}

@@ -14,17 +14,24 @@ import PlaceDetails from "./pages/PlaceDetails";
 import "./index.css";
 import ScrollToTop from "./components/ScrollToTop";
 import ResultsPage from "./pages/ResultsPage";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import PanelPage from "./pages/PanelPage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Provider store={store}>
       <ScrollToTop />
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
           <Route path="/resultsPage" element={<ResultsPage />} />
 
           {/* Ruta protegida */}
+          <Route element={<ProtectedRoute />}>
+            <Route path="/panel" element={<PanelPage />} />
+          </Route>
 
           <Route path="/:id" element={<PlaceDetails />} />
 

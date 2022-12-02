@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useGetAllHotelsQuery } from "../redux/api/hotelsApi";
+import { useGetAllHotelsQuery } from "../redux/api/sunnyApi";
 import CardHotel from "./CardHotel";
 
 const Results = () => {

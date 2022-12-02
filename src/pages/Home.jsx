@@ -1,9 +1,10 @@
-import { useGetAllHotelsQuery } from "../redux/api/hotelsApi";
+import { useGetAllHotelsQuery } from "../redux/api/sunnyApi";
 import Carrusel from "../components/Carrusel";
 import BonusSection from "../components/BonusSection";
 import Search from "../components/Search";
 import image24 from "../img/image 24.png";
 import image25 from "../img/image 25.png";
+import { toast } from "react-toastify";
 
 const Home = () => {
   const { data } = useGetAllHotelsQuery();
@@ -25,6 +26,7 @@ const Home = () => {
           subtitle="Destinos en Mexico que tienne mucho para ofrecer"
           data={data?.hotels}
         />
+
         <Carrusel
           title="Casas y departamentos que les encantan a los huéspedes"
           subtitle="Encuentra tu lugar soñado para vacacionar"
