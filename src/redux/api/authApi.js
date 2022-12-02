@@ -3,15 +3,19 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 export const authApi = createApi({
   reducerPath: "authApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3000",
+    baseUrl: "https://sunnyholidays.onrender.com/api",
   }),
   endpoints: (builder) => ({
-    login: builder.query({
-      query: () => "/login",
-    }),
-    register: builder.mutation({
+    signIn: builder.mutation({
       query: (body) => ({
-        url: "/register",
+        url: "/auth/signIn",
+        method: "POST",
+        body: body,
+      }),
+    }),
+    signUp: builder.mutation({
+      query: (body) => ({
+        url: "/auth/signUp",
         method: "POST",
         body: body,
       }),
@@ -19,4 +23,4 @@ export const authApi = createApi({
   }),
 });
 
-export const { useLoginQuery, useRegisterMutation } = authApi;
+export const { useSignInMutation, useSignUpMutation } = authApi;

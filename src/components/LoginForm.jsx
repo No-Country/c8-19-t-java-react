@@ -2,20 +2,27 @@ import { useFormik } from "formik";
 import { Link, useNavigate } from "react-router-dom";
 
 import { BsArrowRightCircle } from "react-icons/bs";
+import { useSignInMutation } from "../redux/api/authApi";
+import { CircularProgress } from "@mui/material";
 
 const LoginForm = () => {
-  const { handleLogin } = useAuthStore();
   const navigate = useNavigate();
+
+  const [signIn, { data, isLoading }] = useSignInMutation();
+
+  console.log(data);
 
   const { handleSubmit, getFieldProps } = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       console.log(values);
-      handleLogin(values);
-      navigate("/shop");
+      await signIn(values);
+      if (data?.token) {
+        navigate("/");
+      }
     },
   });
 
@@ -57,11 +64,20 @@ const LoginForm = () => {
           <div className="flex w-full">
             <button
               type="submit"
-              className="flex mt-2 items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-500  hover:bg-blue-600 rounded-2xl py-2 w-full transition duration-150 ease-in"
+              className="flex mt-2 items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue  hover:bg-blue-600 rounded-2xl py-2 w-full transition duration-150 ease-in"
             >
-              <span className="mr-2 uppercase">Ingresar</span>
-              <span className="text-lg">
-                <BsArrowRightCircle />
+              <span className="mr-2 uppercase py-1">
+                {isLoading ? (
+                  <CircularProgress
+                    size="1.4rem"
+                    sx={{ color: "rgba(255,255,255,.4)" }}
+                  />
+                ) : (
+                  <div className="flex items-center gap-2 ">
+                    Register
+                    <BsArrowRightCircle />
+                  </div>
+                )}
               </span>
             </button>
           </div>
@@ -73,7 +89,7 @@ const LoginForm = () => {
           to="#"
         >
           <span className="ml-2">No tengo cuenta.</span>
-          <span className="text-xs ml-2 text-blue-500 font-semibold">
+          <span className="text-xs ml-2 text-blue font-semibold">
             Quiero Registrarme
           </span>
         </Link>

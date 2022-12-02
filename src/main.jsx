@@ -25,9 +25,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/resultsPage" element={<ResultsPage />} />
 
           {/* Ruta protegida */}
-          <Route element={<ProtectedRoute />}>
-            <Route path="/shop" element={<Shop />} />
-          </Route>
+
           <Route path="/:id" element={<PlaceDetails />} />
 
           <Route path="/contact" element={<Contact />} />

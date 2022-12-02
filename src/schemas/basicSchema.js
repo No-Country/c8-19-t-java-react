@@ -1,7 +1,7 @@
 import * as yup from "yup";
 
 const basicSchema = yup.object().shape({
-  userName: yup
+  name: yup
     .string("This field accept only letters")
     .required("This field is required")
     .min(2, "Username too short")
