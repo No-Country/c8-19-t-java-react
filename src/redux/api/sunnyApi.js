@@ -26,16 +26,18 @@ export const sunnyApi = createApi({
         body: body,
       }),
     }),
-    getReviews: builder.query({
-      query: () => `/hotels/${id}/reviews`,
-    }),
-    addReview: builder.mutation({
-      query: ({ id, ...body }) => ({
-        url: `/hotels/${id}`,
-        method: "PUT",
-        body: body,
-      }),
-    }),
+    // getReviews: builder.query({
+    //   query: () => `/hotels/${id}`
+
+    // }),
+    // addReview: builder.mutation({
+    //   query: ({id, ...body}) => ({
+    //     url: `/hotels/${id}`,
+    //     method: "PUT",
+    //     body: body,
+    //   }),
+
+    // })
   }),
 });
 
@@ -44,6 +46,4 @@ export const {
   useGetHotelQuery,
   useSignInMutation,
   useSignUpMutation,
-  useGetReviewsQuery,
-  useAddReviewMutation,
 } = sunnyApi;
