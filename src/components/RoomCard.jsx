@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const RoomCard = ({ data }) => {
   return (
@@ -49,9 +50,11 @@ const RoomCard = ({ data }) => {
                   <span className="text-blue">MXN$ 1,244</span>
                   <br /> + MXN$ 236 IVA
                 </p>
-                <button className="text-white w-4/5 text-md rounded bg-blue py-2 hover:bg-blue/90 ease-in duration-100 ">
-                  Reserva
-                </button>
+                <Link to="/checkout">
+                  <button className="text-white w-4/5 text-md rounded bg-blue py-2 hover:bg-blue/90 ease-in duration-100 ">
+                    Reserva
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

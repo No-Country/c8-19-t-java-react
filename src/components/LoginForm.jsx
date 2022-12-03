@@ -49,22 +49,22 @@ const LoginForm = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      <div className="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-3xl w-50 max-w-md">
-        <div className="font-medium text-center text-xl sm:text-3xl text-gray-800">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray">
+      <div className="flex flex-col w-[500px] bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-3xl w-50 max-w-md">
+        <div className="font-medium text-center text-xl sm:text-3xl text-slate">
           Ingresar a mi cuenta
         </div>
         <form onSubmit={handleSubmit} className="mt-10" noValidate>
           <div className="flex flex-col mb-5 min-h-[80px] ">
             <label
               htmlFor="email"
-              className="mb-1 text-xs tracking-wide text-gray-600"
+              className="mb-1 text-xs tracking-wide text-slate"
             >
               E-Mail
             </label>
             <input
               type="email"
-              className={`text-sm  placeholder-gray-500 pl-3 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400`}
+              className={`text-sm  placeholder-gray-500 pl-3 pr-4 rounded-md border border-slate/40 w-full py-2 focus:outline-none focus:border-blue-400`}
               {...getFieldProps("email")}
             />
           </div>
@@ -72,13 +72,13 @@ const LoginForm = () => {
           <div className="flex flex-col mb-5 min-h-[80px]">
             <label
               htmlFor="password"
-              className="mb-1 text-xs tracking-wide text-gray-600"
+              className="mb-1 text-xs tracking-wide text-slate"
             >
               Contraseña
             </label>
             <input
               type="password"
-              className="text-sm  placeholder-gray-500 pl-3 pr-4 rounded-2xl border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400"
+              className="text-sm  placeholder-gray-500 pl-3 pr-4 rounded-md border border-slate/40 w-full py-2 focus:outline-none focus:border-blue-400"
               {...getFieldProps("password")}
             />
           </div>
@@ -108,7 +108,7 @@ const LoginForm = () => {
       <div className="flex justify-center items-center mt-6">
         <Link
           className="inline-flex items-center text-gray-700 font-medium text-xs text-center"
-          to="#"
+          to="/register"
         >
           <span className="ml-2">No tengo cuenta.</span>
           <span className="text-xs ml-2 text-blue font-semibold">

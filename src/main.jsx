@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import App from "./App";
 import Home from "./pages/Home";
-import Shop from "./pages/Shop";
+
 import Contact from "./pages/Contact";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./pages/Login";
@@ -17,6 +17,9 @@ import ResultsPage from "./pages/ResultsPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PanelPage from "./pages/PanelPage";
+import Checkout from "./pages/Checkout";
+import WishList from "./components/WishList";
+import WishListPage from "./pages/WishListPage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -31,6 +34,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           {/* Ruta protegida */}
           <Route element={<ProtectedRoute />}>
             <Route path="/panel" element={<PanelPage />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/wishList" element={<WishListPage />} />
           </Route>
 
           <Route path="/:id" element={<PlaceDetails />} />

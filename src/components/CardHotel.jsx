@@ -1,5 +1,5 @@
 import { Rating } from "@mui/material";
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiOutlineWifi } from "react-icons/ai";
 
 const CardHotel = ({ hotel }) => {
   return (
@@ -12,7 +12,7 @@ const CardHotel = ({ hotel }) => {
         />
       </figure>
       <div className="flex justify-between items-center w-full p-4">
-        <div className="flex flex-col gap-2 ">
+        <div className="flex flex-col ">
           <h4 className="text-slate font-bold text-xl">{hotel.title}</h4>
           <Rating
             name="read-only"
@@ -20,12 +20,12 @@ const CardHotel = ({ hotel }) => {
             precision={0.5}
             readOnly
           />
-          <span className="bg-blue text-white font-semibold rounded-md w-fit px-4 py-2">
+          <span className="bg-blue text-white text-sm font-semibold rounded-md w-fit px-4 py-2 my-2">
             {hotel.rating}
           </span>
           <div>
             <span className="text-slate font-semibold text-md">Services:</span>
-            <ul className="grid grid-cols-2 text-slate capitalize">
+            <ul className="flex gap-3 text-slate capitalize ">
               {Object.keys(hotel.services).map((service, index) => (
                 <li className="text-sm" key={index}>
                   {service}

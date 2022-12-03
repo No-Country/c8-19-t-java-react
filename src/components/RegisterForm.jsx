@@ -144,11 +144,11 @@ const RegisterForm = () => {
       <div className="flex justify-center items-center mt-6">
         <Link
           className="inline-flex items-center text-gray-700 font-medium text-xs text-center"
-          to="#"
+          to="/login"
         >
-          <span className="ml-2">No tengo cuenta.</span>
-          <span className="text-xs ml-2 text-blue-500 font-semibold">
-            Quiero Registrarme
+          <span className="ml-2">Ya tengo una cuenta.</span>
+          <span className="text-xs ml-2 text-blue font-semibold">
+            Quiero Ingresar
           </span>
         </Link>
       </div>
