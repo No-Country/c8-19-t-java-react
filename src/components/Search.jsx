@@ -56,7 +56,9 @@ const Search = () => {
           </div>
           <div className="relative col-span-2 md:col-span-1 border-2 border-orange  ">
             <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Age</InputLabel>
+              <InputLabel id="demo-simple-select-label">
+                Cantidad de personas
+              </InputLabel>
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"

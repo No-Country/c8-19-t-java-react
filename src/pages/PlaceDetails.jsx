@@ -47,7 +47,7 @@ const PlaceDetails = () => {
         </h3>
       </div>
       <RoomCard data={data?.findHotel?.rooms} />
-      <Comments />
+      <Comments rating={data?.findHotel?.rating} />
     </div>
   );
 };

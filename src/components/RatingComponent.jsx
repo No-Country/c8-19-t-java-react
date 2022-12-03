@@ -4,16 +4,16 @@ import Box from "@mui/material/Box";
 import { BsStar } from "react-icons/bs";
 
 const labels = {
-  0.5: "Useless",
-  1: "Useless+",
-  1.5: "Poor",
-  2: "Poor+",
-  2.5: "Ok",
-  3: "Ok+",
-  3.5: "Good",
-  4: "Good+",
-  4.5: "Excellent",
-  5: "Excellent+",
+  0.5: "Malo",
+  1: "Malo+",
+  1.5: "Promedio",
+  2: "Promedio+",
+  2.5: "Decente",
+  3: "Decente+",
+  3.5: "Bueno",
+  4: "Bueno+",
+  4.5: "Excelente",
+  5: "Excelente+",
 };
 
 function getLabelText(value) {
@@ -31,7 +31,6 @@ export default function RatingComponent({ value, setValue, hover, setHover }) {
     >
       <Rating
         name="hover-feedback"
-        readOnly
         value={value}
         precision={0.5}
         getLabelText={getLabelText}
