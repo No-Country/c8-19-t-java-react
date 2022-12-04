@@ -29,7 +29,7 @@ const Comments = ({ data }) => {
       id: data._id,
       comment,
       rating: value,
-      token: user.token,
+      name: user.user,
     };
 
     createComment(newComment);
