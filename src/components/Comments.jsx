@@ -17,7 +17,7 @@ const Comments = ({ data }) => {
   const [createComment, { data: aux, isLoading, error }] =
     useCreateCommentMutation();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!user.token) {
@@ -25,11 +25,14 @@ const Comments = ({ data }) => {
       return;
     }
 
-    await createComment({
+    const newComment = {
       id: data._id,
       comment,
       rating: value,
-    });
+      token: user.token,
+    };
+
+    createComment(newComment);
 
     console.log(aux);
 

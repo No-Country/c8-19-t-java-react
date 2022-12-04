@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 export const sunnyApi = createApi({
   reducerPath: "sunnyApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:4000/api",
+    baseUrl: "https://sunnyholidays.up.railway.app/api",
   }),
   endpoints: (builder) => ({
     getAllHotels: builder.query({
@@ -28,10 +28,10 @@ export const sunnyApi = createApi({
     }),
 
     createComment: builder.mutation({
-      query: ({ id, ...body }) => ({
+      query: ({ id, ...rest }) => ({
         url: `/comments/${id}`,
         method: "POST",
-        body: body,
+        body: rest,
       }),
     }),
   }),
