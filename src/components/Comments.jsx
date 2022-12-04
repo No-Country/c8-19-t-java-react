@@ -4,36 +4,43 @@ import { AiFillStar } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { ImQuotesLeft } from "react-icons/im";
 import { useSelector } from "react-redux";
+import { useCreateCommentMutation } from "../redux/api/sunnyApi";
 import RatingComponent from "./RatingComponent";
 
-const Comments = ({ rating }) => {
+const Comments = ({ data }) => {
   const [comment, setComment] = useState("");
   const [value, setValue] = useState(2);
   const [hover, setHover] = useState(-1);
 
-  console.log(rating);
-
   const user = useSelector((state) => state.auth);
 
-  console.log(user);
+  const [createComment, { data: aux, isLoading, error }] =
+    useCreateCommentMutation();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(comment);
-    console.log(value);
+
     if (!user.token) {
-      // navigate("/login");
+      console.log("debes estar autenticado");
       return;
     }
 
-    createReview({
+    await createComment({
       id: data._id,
-      user: user?.name,
       comment,
-      value,
+      rating: value,
     });
 
-    if (!isLoading) e.target.reset();
+    console.log(aux);
+
+    // createReview({
+    //   id: data._id,
+    //   user: user?.name,
+    //   comment,
+    //   value,
+    // });
+
+    // if (!isLoading) e.target.reset();
   };
 
   return (
@@ -68,22 +75,28 @@ const Comments = ({ rating }) => {
       </form>
 
       <div className="grid grid-cols-3 py-5 gap-4">
-        <div className="border border-slate/20 p-4 rounded-md hover:shadow-md duration-300">
-          <ImQuotesLeft className="text-xl text-slate mb-1" />
-          <h3 className="text-md font-medium text-slate mb-1">Lorem</h3>
-          <Rating
-            name="read-only"
-            sx={{ fontSize: "1.6rem", color: "#FCDB8A" }}
-            value={rating}
-            precision={0.5}
-            readOnly
-          />
+        {data.comments.map((item) => (
+          <div
+            key={item._id}
+            className="border border-slate/20 p-4 rounded-md hover:shadow-md duration-300"
+          >
+            <ImQuotesLeft className="text-xl text-slate mb-1" />
+            <h3 className="text-md font-medium text-slate mb-1">
+              {item.user.name}
+            </h3>
+            <Rating
+              name="read-only"
+              sx={{ fontSize: "1.6rem", color: "#FCDB8A" }}
+              value={item.rating}
+              precision={0.5}
+              readOnly
+            />
 
-          <p className="text-smd text-slate pt-2">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Natus
-            beatae vitae expedita
-          </p>
-        </div>
+            <p key={item._id} className="text-smd text-slate pt-2">
+              {item.comment}
+            </p>
+          </div>
+        ))}
       </div>
     </section>
   );
