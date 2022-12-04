@@ -22,6 +22,7 @@ const userSchema = new Schema(
     picture: {
       type: String,
     },
+    comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
     isAdmin: {
       type: Boolean,
       default: false,

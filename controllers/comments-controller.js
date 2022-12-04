@@ -9,7 +9,10 @@ const createComment = async (req, res) => {
   try {
     const hotel = await Hotel.findById(id);
 
+    const user = await User.findById(req.user._id);
+
     const newComment = new Comment({
+      user: user._id,
       hotel: hotel._id,
       comment,
       rating,
@@ -19,13 +22,17 @@ const createComment = async (req, res) => {
     const savedComment = await newComment.save();
 
     hotel.comments = hotel.comments.concat(savedComment._id);
+    user.comments = user.comments.concat(savedComment._id);
 
     await hotel.save();
+    await user.save();
 
     res.status(200).json({
       savedComment,
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export { createComment };

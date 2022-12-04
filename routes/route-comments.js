@@ -5,6 +5,6 @@ import { verifyToken } from "../middlewares/verify-token.js";
 
 const router = Router();
 
-router.post("/", [verifyToken, handleErrors], createComment);
+router.post("/:id", [verifyToken, handleErrors], createComment);
 
 export default router;

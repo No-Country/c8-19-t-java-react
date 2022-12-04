@@ -2,11 +2,11 @@ import { Router } from "express";
 import {
   getHotel,
   getHotels,
-  insertHotels,
+  // insertHotels,
 } from "../controllers/hotel-controller.js";
 const router = Router();
 
-router.use("/insertHotels", insertHotels);
+// router.use("/insertHotels", insertHotels);
 
 router.get("/", getHotels);
 

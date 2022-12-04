@@ -6,6 +6,10 @@ const commentSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Hotel",
     },
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
     date: {
       type: Date,
     },
