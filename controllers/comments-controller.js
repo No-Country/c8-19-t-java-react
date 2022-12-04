@@ -3,13 +3,13 @@ import { Hotel } from "../models/hotelsSchema.js";
 import User from "../models/userSchema.js";
 
 const createComment = async (req, res) => {
-  const { comment, rating } = req.body;
+  const { comment, rating, user } = req.body;
   const { id } = req.params;
 
   try {
     const hotel = await Hotel.findById(id);
 
-    const user = await User.findById(req.user._id);
+    const user = await User.findOne({ name: user });
 
     const newComment = new Comment({
       user: user._id,
