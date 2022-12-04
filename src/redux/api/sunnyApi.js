@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 export const sunnyApi = createApi({
   reducerPath: "sunnyApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://sunnyholidays.onrender.com/api",
+    baseUrl: "https://sunnyholidays.up.railway.app/api",
   }),
   endpoints: (builder) => ({
     getAllHotels: builder.query({
