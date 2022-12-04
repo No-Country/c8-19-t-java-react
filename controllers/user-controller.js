@@ -16,7 +16,7 @@ const getAllUser = async (req, res) => {
 
 const getUserById = async (req, res) => {
   const { id } = req.params;
-  const { authenticatedUser } = req.user;
+
   try {
     const user = await User.findById(id);
 
@@ -26,11 +26,8 @@ const getUserById = async (req, res) => {
       });
     }
 
-    const { password, ...rest } = user;
-
     res.status(200).json({
-      rest,
-      authenticatedUser,
+      user,
     });
   } catch (error) {
     res.status(400).json({

@@ -1,14 +1,17 @@
 import mongoose, { Schema, model } from "mongoose";
 
-const hotelCommentsSchema = new Schema(
+const commentSchema = new Schema(
   {
     hotel: {
       type: Schema.Types.ObjectId,
       ref: "Hotel",
     },
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
+    date: {
+      type: Date,
+    },
+
+    comment: {
+      type: String,
     },
     rating: {
       type: Number,
@@ -18,7 +21,4 @@ const hotelCommentsSchema = new Schema(
   { timestamps: true }
 );
 
-export default hotelComments = mongoose.model(
-  "HotelComments",
-  hotelCommentsSchema
-);
+export const Comment = mongoose.model("Comment", commentSchema);

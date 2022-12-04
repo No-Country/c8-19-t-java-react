@@ -37,7 +37,7 @@ const hotelSchema = new Schema({
     type: Number,
     default: 0,
   },
-  comments: [{ type: Schema.Types.ObjectId, ref: "HotelComments" }],
+  comments: [{ type: Schema.Types.ObjectId, ref: "Comments" }],
   services: {
     type: Schema.Types.Mixed,
   },

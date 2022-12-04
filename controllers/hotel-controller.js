@@ -27,7 +27,7 @@ const getHotel = async (req, res) => {
   console.log(id);
 
   try {
-    const findHotel = await Hotel.findById(id);
+    const findHotel = await Hotel.findById(id).populate("Comments");
 
     if (!findHotel)
       return res.status(404).json({
