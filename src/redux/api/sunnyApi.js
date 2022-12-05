@@ -11,6 +11,7 @@ export const sunnyApi = createApi({
     }),
     getHotel: builder.query({
       query: (id) => `/hotels/${id}`,
+      providesTags: ["Review"],
     }),
     signIn: builder.mutation({
       query: (body) => ({
@@ -33,6 +34,7 @@ export const sunnyApi = createApi({
         method: "POST",
         body: rest,
       }),
+      invalidatesTags: ["Review"],
     }),
   }),
 });

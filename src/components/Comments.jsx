@@ -1,24 +1,30 @@
-import { Rating } from "@mui/material";
+import { CircularProgress, Rating } from "@mui/material";
 import { useState } from "react";
 import { AiFillStar } from "react-icons/ai";
 import { BiSearch } from "react-icons/bi";
 import { ImQuotesLeft } from "react-icons/im";
 import { useSelector } from "react-redux";
 import { useCreateCommentMutation } from "../redux/api/sunnyApi";
+import LoginModal from "./LoginModal";
 import RatingComponent from "./RatingComponent";
 
 const Comments = ({ data }) => {
   const [comment, setComment] = useState("");
   const [value, setValue] = useState(2);
   const [hover, setHover] = useState(-1);
+  const [buttonClicked, setbuttonClicked] = useState(false);
 
   const user = useSelector((state) => state.auth);
 
   const [createComment, { data: aux, isLoading, error }] =
     useCreateCommentMutation();
 
+  console.log(aux);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    setbuttonClicked(true);
 
     if (!user.token) {
       console.log("debes estar autenticado");
@@ -33,15 +39,6 @@ const Comments = ({ data }) => {
     };
 
     createComment(newComment);
-
-    console.log(aux);
-
-    // createReview({
-    //   id: data._id,
-    //   user: user?.name,
-    //   comment,
-    //   value,
-    // });
 
     // if (!isLoading) e.target.reset();
   };
@@ -69,16 +66,28 @@ const Comments = ({ data }) => {
               className="bg-white w-full mt-2 border border-slate/20  rounded-lg p-2 outline-blue"
             />
 
-            <BiSearch
+            {buttonClicked && !user.token && <LoginModal />}
+
+            <button
+              disabled={isLoading}
               onClick={handleSubmit}
-              className="absolute right-0 bottom-0  bg-blue h-[44px] w-20 p-2  rounded-r-lg cursor-pointer hover:bg-blue/80 duration-300  text-white "
-            />
+              className="flex justify-center items-center absolute right-0 bottom-0  bg-blue h-[44px] w-[60px]  p-2  rounded-r-lg cursor-pointer hover:bg-blue/80 duration-300  text-white "
+            >
+              {isLoading ? (
+                <CircularProgress
+                  size="1rem"
+                  sx={{ color: "rgba(255,255,255,.9)" }}
+                />
+              ) : (
+                <BiSearch className="text-xl " />
+              )}
+            </button>
           </div>
         </div>
       </form>
 
       <div className="grid grid-cols-3 py-5 gap-4">
-        {data.comments.map((item) => (
+        {data?.comments?.map((item) => (
           <div
             key={item._id}
             className="border border-slate/20 p-4 rounded-md hover:shadow-md duration-300"

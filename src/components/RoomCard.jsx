@@ -14,8 +14,8 @@ const RoomCard = ({ data }) => {
               <figure className="max-h-[250px] max-w-[320px] ">
                 <img
                   className="object-cover w-full h-full"
-                  src={room.pictures[0]}
-                  alt={room.title}
+                  src={room?.pictures[0]}
+                  alt={room?.title}
                 />
               </figure>
               <div className="flex flex-col justify-between">

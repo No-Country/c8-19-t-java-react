@@ -21,7 +21,7 @@ const ImageList = ({ pictures }) => {
         />
       )}
       <div className="contenedor grid grid-cols-2 md:grid-cols-6 auto-rows-[160px] gap-2 py-8">
-        {pictures.map((picture, index) => (
+        {pictures?.map((picture, index) => (
           <figure
             key={index}
             className="overflow-hidden rounded-xl"
