@@ -9,7 +9,7 @@ const createComment = async (req, res) => {
   try {
     const hotel = await Hotel.findById(id);
 
-    const user = await User.findOne({ name });
+    const user = await User.findOne({ name: name });
 
     const newComment = new Comment({
       user: user._id,
@@ -29,6 +29,7 @@ const createComment = async (req, res) => {
 
     res.status(200).json({
       savedComment,
+      user,
     });
   } catch (error) {
     console.log(error);
