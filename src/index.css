@@ -21,3 +21,16 @@
 .contenedor figure:nth-child(6) {
   grid-column: span 2;
 }
+
+@media screen and (max-width: 576px){
+  .contenedor {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 160px 160px;
+  }
+  .contenedor figure:nth-child(1) {
+    grid-row: span 1;
+  }
+  
+  
+}

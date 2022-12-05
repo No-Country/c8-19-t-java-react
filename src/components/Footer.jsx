@@ -3,8 +3,8 @@ import { AiFillTwitterCircle, AiFillInstagram } from "react-icons/ai";
 
 const Footer = () => {
   return (
-    <div className="md:container w-full  py-10 border-t border-blue">
-      <div className="flex  flex-wrap justify-center gap-6 md:justify-between">
+    <div className=" w-full  py-10 border-t border-blue">
+      <div className="md:container flex flex-wrap gap-6 justify-around md:justify-between">
         <div className="bg-white">
           <h3 className="text-md text-blue font-medium">Servicio al cliente</h3>
           <div className="">
@@ -17,7 +17,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div>
+        <div className="hidden md:block">
           <h3 className="text-[15px] text-[#4B84F1] font-medium">
             Acerca de nosotros
           </h3>
@@ -27,7 +27,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div>
+        <div className="hidden md:block">
           <h3 className="text-md text-[#4B84F1] font-medium">Proveedores</h3>
           <p className="text-xs pt-4  text-[#515252]">Registra tu propiedad</p>
         </div>
@@ -68,4 +68,5 @@ const Footer = () => {
     </div>
   );
 };
+
 export default Footer;

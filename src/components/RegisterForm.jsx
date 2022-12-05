@@ -38,8 +38,8 @@ const RegisterForm = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray ">
-      <div className="flex flex-col w-[500px] bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-3xl w-50 max-w-md">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-hero bg-cover ">
+      <div className="flex flex-col w-[400px] sm:w-[500px] bg-white/80 shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-4 rounded-3xl w-50 max-w-md">
         <h2 className="font-medium text-center text-xl sm:text-3xl text-slate">
           Create Account
         </h2>
@@ -53,7 +53,7 @@ const RegisterForm = () => {
             </label>
             <input
               type="name"
-              className={`text-sm  placeholder-gray pl-3 pr-4 rounded-md border border-gray w-full py-2 focus:outline-none focus:border-blue ${
+              className={`text-sm  placeholder-gray pl-3 pr-4 rounded-md border border-slate/40 w-full py-2 focus:outline-none focus:border-blue ${
                 errors.name ? "border-red" : ""
               }`}
               {...getFieldProps("name")}
@@ -71,7 +71,7 @@ const RegisterForm = () => {
             </label>
             <input
               type="email"
-              className={`text-sm  placeholder-gray pl-3 pr-4 rounded-md border border-gray w-full py-2 focus:outline-none focus:border-blue ${
+              className={`text-sm  placeholder-gray pl-3 pr-4 rounded-md border border-slate/40 w-full py-2 focus:outline-none focus:border-blue ${
                 errors.email ? "border-red" : ""
               }`}
               {...getFieldProps("email")}
@@ -90,7 +90,7 @@ const RegisterForm = () => {
             </label>
             <input
               type="password"
-              className={`text-sm  placeholder-gray pl-3 pr-4 rounded-md border border-gray w-full py-2 focus:outline-none focus:border-blue ${
+              className={`text-sm  placeholder-gray pl-3 pr-4 rounded-md border border-slate/40 w-full py-2 focus:outline-none focus:border-blue ${
                 errors.userName ? "border-red" : ""
               }`}
               {...getFieldProps("password")}
@@ -109,7 +109,7 @@ const RegisterForm = () => {
             </label>
             <input
               type="password"
-              className={`text-sm  placeholder-gray pl-3 pr-4 rounded-md border border-gray w-full py-2 focus:outline-none focus:border-blue ${
+              className={`text-sm  placeholder-gray pl-3 pr-4 rounded-md border border-slate/40 w-full py-2 focus:outline-none focus:border-blue ${
                 errors.userName ? "border-red" : ""
               }`}
               {...getFieldProps("confirmPassword")}
@@ -140,8 +140,7 @@ const RegisterForm = () => {
             </button>
           </div>
         </form>
-      </div>
-      <div className="flex justify-center items-center mt-6">
+        <div className="flex justify-center items-center mt-6">
         <Link
           className="inline-flex items-center text-gray-700 font-medium text-xs text-center"
           to="/login"
@@ -152,6 +151,8 @@ const RegisterForm = () => {
           </span>
         </Link>
       </div>
+      </div>
+      
     </div>
   );
 };

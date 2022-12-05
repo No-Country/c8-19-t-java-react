@@ -6,11 +6,11 @@ const RoomCard = ({ data }) => {
     <section className="bg-gray">
       <div className="md:container">
         {data.map((room, index) => (
-          <div key={index} className="px-7 pb-10 pt-4 border border-gray mb-10">
+          <div key={index} className="px-3 lg:px-7 pb-10 pt-4 border border-gray mb-10">
             <h3 className="text-blue text-base pb-2 font-medium">
               {room.title}
             </h3>
-            <div className="flex flex-col md:flex-row md:justify-between gap-8">
+            <div className="flex items-center flex-wrap justify-center sm:flex-nowrap sm:flex-row sm:justify-between gap-8">
               <figure className="max-h-[250px] max-w-[320px] ">
                 <img
                   className="object-cover w-full h-full"
@@ -51,7 +51,7 @@ const RoomCard = ({ data }) => {
                   <br /> + MXN$ 236 IVA
                 </p>
                 <Link to="/checkout">
-                  <button className="text-white w-4/5 text-md rounded bg-blue py-2 hover:bg-blue/90 ease-in duration-100 ">
+                  <button className="text-white w-full md:w-4/5 text-md rounded bg-blue py-2 hover:bg-blue/90 ease-in duration-100 ">
                     Reserva
                   </button>
                 </Link>

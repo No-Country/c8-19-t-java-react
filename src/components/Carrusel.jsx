@@ -13,6 +13,7 @@ const Carrusel = ({ title, subtitle, data }) => {
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
+    adaptiveHeight: true,
     responsive: [
       {
         breakpoint: 1324,

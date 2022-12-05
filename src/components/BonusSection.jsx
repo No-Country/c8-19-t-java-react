@@ -11,11 +11,11 @@ const BonusSection = ({ image, title, description }) => {
       <div className="py-5 px-4">
         <h3 className="text-lg font-medium text-[#515252]">{title}</h3>
         <p className="text-[15px] text-[#979797]">{description}</p>
-        <div className="flex gap-5 pt-8">
-          <button className="text-[10px] text-[#4B84F1] border border-[#4B84F1] px-5 py-2  hover:bg-blue-300 ease-in duration-100">
+        <div className="flex gap-5 pt-8 justify-center md:justify-start">
+          <button className="text-xs text-[#4B84F1] border border-[#4B84F1] px-5 py-2  hover:bg-blue-300 ease-in duration-100">
             Inicia sesión
           </button>
-          <button className="text-[10px] text-[#4B84F1] border border-[#4B84F1] px-5 py-2  hover:bg-blue-300 ease-in duration-100">
+          <button className="text-xs text-[#4B84F1] border border-[#4B84F1] px-5 py-2  hover:bg-blue-300 ease-in duration-100">
             Regístrate
           </button>
         </div>

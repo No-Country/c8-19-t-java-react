@@ -49,8 +49,9 @@ const LoginForm = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray">
-      <div className="flex flex-col w-[500px] bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-3xl w-50 max-w-md">
+    
+    <div className="min-h-screen px-4 flex flex-col items-center justify-center bg-hero bg-cover">
+      <div className="flex flex-col w-[400px] sm:w-[500px] bg-white/80 shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-4 rounded-3xl w-50 max-w-md">
         <div className="font-medium text-center text-xl sm:text-3xl text-slate">
           Ingresar a mi cuenta
         </div>
@@ -104,8 +105,7 @@ const LoginForm = () => {
             </button>
           </div>
         </form>
-      </div>
-      <div className="flex justify-center items-center mt-6">
+        <div className="flex justify-center items-center mt-6">
         <Link
           className="inline-flex items-center text-gray-700 font-medium text-xs text-center"
           to="/register"
@@ -116,6 +116,8 @@ const LoginForm = () => {
           </span>
         </Link>
       </div>
+      </div>
+      
     </div>
   );
 };

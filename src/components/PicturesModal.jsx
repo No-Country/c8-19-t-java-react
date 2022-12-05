@@ -18,14 +18,14 @@ const PicturesModal = ({ pictures, setModal, index, setIndex }) => {
   return (
     <>
       <div className="fixed flex justify-center items-center bg-slate/40 top-0 left-0 min-h-[100vh] w-full z-40 ">
-        <div className="relative  w-[800px]">
+        <div className="relative  w-[400px] sm:w-[800px]">
           <RiDeleteBack2Fill
             onClick={() => setModal(false)}
             className="text-white text-6xl absolute right-[-1rem] top-[-2rem] z-50 "
           />
           <MdArrowBackIos
             onClick={handleModalBack}
-            className="absolute text-white text-6xl  left-[-5rem] top-[35%]  cursor-pointer "
+            className="absolute text-white text-6xl left-[-5rem] top-[35%]  cursor-pointer "
           />
           <MdArrowForwardIos
             onClick={handleModalForward}
@@ -38,7 +38,7 @@ const PicturesModal = ({ pictures, setModal, index, setIndex }) => {
               alt=""
             />
 
-            <div className="flex items-center gap-2">
+            <div className="hidden sm:flex items-center gap-2">
               {pictures.map((picture, i) => (
                 <img
                   key={i}

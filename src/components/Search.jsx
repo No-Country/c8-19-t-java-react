@@ -36,7 +36,7 @@ const Search = () => {
 
   return (
     <div className="md:block z-20 mb-10">
-      <form className=" bg-white shadow-md rounded-md px-6 py-2 m-2 ">
+      <form className="bg-white/80 sm:bg-white shadow-md rounded-md px-6 py-2 m-2 ">
         <div className="grid bg-slate-200 items-center grid-cols-2 sm:grid-cols-4 gap-2 md:grid-cols-4">
           <div className="relative col-span-2  md:col-span-1 border-2 border-orange ">
             <TextField
@@ -85,7 +85,7 @@ const Search = () => {
           </div>
           <button
             onClick={handleSubmit}
-            className="text-white w-[240px] mx-auto col-span-2  md:col-span-1  font-bold text-md rounded-xl  bg-blue  py-2 hover:bg-blue/90 ease-in duration-100 "
+            className="text-white w-[240px] mx-auto col-span-2  md:col-span-1  font-bold text-md rounded-xl bg-blue/80 sm:bg-blue  py-2 hover:bg-blue/90 ease-in duration-100 "
           >
             Buscar
           </button>

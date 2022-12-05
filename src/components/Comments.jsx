@@ -57,7 +57,7 @@ const Comments = ({ data }) => {
             hover={hover}
             setHover={setHover}
           />
-          <div className="relative w-[50%]">
+          <div className="relative w-full sm:w-[50%]">
             <input
               type="text"
               name="comment"
@@ -86,7 +86,7 @@ const Comments = ({ data }) => {
         </div>
       </form>
 
-      <div className="grid grid-cols-3 py-5 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 py-5 gap-4">
         {data?.comments?.map((item) => (
           <div
             key={item._id}
