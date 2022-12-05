@@ -1,5 +1,5 @@
 // import hotels from "../data/hotels.js";
-import { Hotel } from "../models/hotelsSchema.js";
+import { Hotel } from "../models/hotelSchema.js";
 
 const insertHotels = async (req, res) => {
   const { state, ...rest } = req.body;
