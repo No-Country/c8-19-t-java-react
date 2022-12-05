@@ -1,4 +1,5 @@
 import mongoose, { Schema, model } from "mongoose";
+import { hotelSchema } from "./hotelSchema.js";
 
 const userSchema = new Schema(
   {
@@ -26,6 +27,9 @@ const userSchema = new Schema(
     isAdmin: {
       type: Boolean,
       default: false,
+    },
+    favorites: {
+      type: [hotelSchema],
     },
     state: {
       type: Boolean,

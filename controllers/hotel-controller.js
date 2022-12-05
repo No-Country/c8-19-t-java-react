@@ -1,5 +1,5 @@
 // import hotels from "../data/hotels.js";
-import { Hotel } from "../models/hotelsSchema.js";
+import { Hotel } from "../models/hotelSchema.js";
 
 // const insertHotels = async (req, res) => {
 //   const DBhotels = await Hotel.insertMany(hotels);
@@ -31,6 +31,9 @@ const getHotel = async (req, res) => {
       path: "comments",
       populate: {
         path: "user",
+        populate: {
+          path: "comments",
+        },
       },
     });
 

@@ -18,7 +18,12 @@ const getUserById = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(id).populate({
+      path: "favorites",
+      populate: {
+        path: "hotel",
+      },
+    });
 
     if (!user) {
       return res.status(404).json({

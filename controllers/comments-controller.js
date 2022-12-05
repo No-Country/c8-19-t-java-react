@@ -1,5 +1,5 @@
 import { Comment } from "../models/commentSchema.js";
-import { Hotel } from "../models/hotelsSchema.js";
+import { Hotel } from "../models/hotelSchema.js";
 import User from "../models/userSchema.js";
 
 const createComment = async (req, res) => {
@@ -7,9 +7,26 @@ const createComment = async (req, res) => {
   const { id } = req.params;
 
   try {
-    const hotel = await Hotel.findById(id);
+    const hotel = await Hotel.findById(id).populate({
+      path: "comments",
+      populate: {
+        path: "user",
+      },
+    });
 
     const user = await User.findOne({ name: name });
+
+    console.log(hotel);
+
+    // const hotelReviewed = hotel.comments.find((comment) => {
+    //   return comment.user === user;
+    // });
+
+    // if (hotelReviewed) {
+    //   return res.status(501).json({
+    //     msg: "Solo puedes comentar una vez cada hotel",
+    //   });
+    // }
 
     const newComment = new Comment({
       user: user._id,
@@ -29,7 +46,6 @@ const createComment = async (req, res) => {
 
     res.status(200).json({
       savedComment,
-      user,
     });
   } catch (error) {
     console.log(error);

@@ -1,5 +1,4 @@
 import mongoose, { Schema, model } from "mongoose";
-import { reviewSchema } from "./reviewSchema.js";
 
 const roomSchema = new Schema(
   {
@@ -18,7 +17,7 @@ const roomSchema = new Schema(
   { timestamps: true }
 );
 
-const hotelSchema = new Schema({
+export const hotelSchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -38,6 +37,7 @@ const hotelSchema = new Schema({
     default: 0,
   },
   comments: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
+
   services: {
     type: Schema.Types.Mixed,
   },

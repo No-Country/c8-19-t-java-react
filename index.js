@@ -6,6 +6,7 @@ import authRouter from "./routes/auth-route.js";
 import hotelRouter from "./routes/hotel-route.js";
 import userRouter from "./routes/user-route.js";
 import commentsRouter from "./routes/route-comments.js";
+import favoriteRouter from "./routes/favorite-router.js";
 
 const app = express();
 connectDatabase();
@@ -19,6 +20,7 @@ app.use("/api/auth", authRouter);
 app.use("/api/hotels", hotelRouter);
 app.use("/api/user", userRouter);
 app.use("/api/comments", commentsRouter);
+app.use("/api/favorites", favoriteRouter);
 
 app.listen(PORT, () => {
   console.log(`servidor escuchando al puerto ${PORT}`);
