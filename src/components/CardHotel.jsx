@@ -2,26 +2,37 @@ import { Rating } from "@mui/material";
 import { AiOutlineDelete, AiOutlineHeart, AiOutlineWifi } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useRemoveFavMutation } from "../redux/api/sunnyApi";
 import { useAddToFavMutation } from "../redux/api/sunnyApi";
 
 const CardHotel = ({ hotel, addedToFavs }) => {
-  const [addToFav, { data, isLoading, error }] = useAddToFavMutation();
+  const [addToFav] = useAddToFavMutation();
+
+  const [removeFav] = useRemoveFavMutation();
 
   const user = useSelector((state) => state.auth.user);
 
   const handleFav = async (e) => {
     e.preventDefault();
-    // e.stopPropagation();
-    console.log("hola");
+
     const newFavHotel = {
       id: hotel._id,
       name: user,
     };
-    console.log(newFavHotel);
-    await addToFav(newFavHotel);
+
+    addToFav(newFavHotel);
   };
 
-  console.log(data);
+  const handleFavDelete = (e) => {
+    e.preventDefault();
+
+    const newFavHotel = {
+      id: hotel._id,
+      name: user,
+    };
+
+    removeFav(newFavHotel);
+  };
 
   return (
     <Link to={`/${hotel._id}`}>
@@ -62,7 +73,7 @@ const CardHotel = ({ hotel, addedToFavs }) => {
             <button className="bg-white shadow-md  p-1 w-[50px] h-[50px] flex justify-center items-center rounded-full">
               {addedToFavs ? (
                 <AiOutlineDelete
-                  onClick={handleFav}
+                  onClick={handleFavDelete}
                   className="text-slate/40 text-2xl font-thin"
                 />
               ) : (

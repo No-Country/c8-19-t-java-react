@@ -1,13 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const user = JSON.parse(localStorage.getItem("user"));
+const id = JSON.parse(localStorage.getItem("id"));
 const token = JSON.parse(localStorage.getItem("token"));
-const favorites = JSON.parse(localStorage.getItem("favorites"));
 
 const initialState = {
   user: user ? user : null,
+  id: id ? id : null,
   token: token ? token : null,
-  favorites: favorites ? favorites : [],
 };
 
 const authSlice = createSlice({
@@ -15,13 +15,15 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     setCredentials: (state, action) => {
-      console.log(action);
-      state.user = action.payload.name;
-      state.token = action.payload.token;
-      state.favorites.push(action.payload.favorites);
+      console.log(action.payload);
+      const { name, token, _id } = action.payload;
+      state.user = name;
+      state.token = token;
+      state.id = _id;
+
       localStorage.setItem("user", JSON.stringify(state.user));
+      localStorage.setItem("id", JSON.stringify(state.id));
       localStorage.setItem("token", JSON.stringify(state.token));
-      localStorage.setItem("favorites", JSON.stringify(state.favorites));
     },
     logout: (state) => {
       (state.user = null), (state.token = null);

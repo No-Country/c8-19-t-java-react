@@ -27,12 +27,26 @@ export const sunnyApi = createApi({
         body: body,
       }),
     }),
+    getFavHotels: builder.query({
+      query: (id) => `/favorites/${id}`,
+      providesTags: ["Favorites"],
+    }),
+    removeFav: builder.mutation({
+      query: ({ id, ...rest }) => ({
+        url: `/favorites/${id}`,
+        method: "PUT",
+        body: rest,
+      }),
+      invalidatesTags: ["Favorites"],
+    }),
+
     addToFav: builder.mutation({
       query: ({ id, ...rest }) => ({
         url: `/favorites/${id}`,
         method: "POST",
         body: rest,
       }),
+      invalidatesTags: ["Favorites"],
     }),
 
     createComment: builder.mutation({
@@ -53,4 +67,6 @@ export const {
   useSignUpMutation,
   useCreateCommentMutation,
   useAddToFavMutation,
+  useGetFavHotelsQuery,
+  useRemoveFavMutation,
 } = sunnyApi;
