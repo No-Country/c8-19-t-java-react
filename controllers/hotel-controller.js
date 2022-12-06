@@ -108,4 +108,48 @@ const deleteHotel = async (req, res) => {
   }
 };
 
-export { insertHotels, getHotels, getHotel, updateHotel, deleteHotel };
+const filterHotels = async (req, res) => {
+  const { rating, price, amount } = req.query;
+
+  try {
+    // const filters = {
+    //   rating: Number(rating) || undefined,
+    //   price: Number(price) || undefined,
+    //   amount: Number(amount) || undefined,
+    // };
+
+    let query = {};
+
+    if (rating) {
+      query.rating = rating;
+    }
+
+    if (price) {
+      query.price = Number(price);
+    }
+
+    const findHotels = await Hotel.find(query);
+
+    // const findHotels = await Hotel.find({
+    //   rating: Number(rating),
+    //   "rooms.amount": Number(amount) || undefined,
+    // });
+
+    res.json({
+      findHotels,
+    });
+  } catch (error) {
+    res.status(400).json({
+      error,
+    });
+  }
+};
+
+export {
+  insertHotels,
+  getHotels,
+  getHotel,
+  updateHotel,
+  deleteHotel,
+  filterHotels,
+};

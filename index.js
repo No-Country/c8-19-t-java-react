@@ -7,6 +7,8 @@ import hotelRouter from "./routes/hotel-route.js";
 import userRouter from "./routes/user-route.js";
 import commentsRouter from "./routes/route-comments.js";
 import favoriteRouter from "./routes/favorite-router.js";
+import { Hotel } from "./models/hotelSchema.js";
+import hotels from "./data/hotels.js";
 
 const app = express();
 connectDatabase();
@@ -21,6 +23,14 @@ app.use("/api/hotels", hotelRouter);
 app.use("/api/user", userRouter);
 app.use("/api/comments", commentsRouter);
 app.use("/api/favorites", favoriteRouter);
+
+// app.use("/insertAllHotels", async (req, res) => {
+//   const allHotels = await Hotel.insertMany(hotels);
+
+//   res.json({
+//     allHotels,
+//   });
+// });
 
 app.listen(PORT, () => {
   console.log(`servidor escuchando al puerto ${PORT}`);

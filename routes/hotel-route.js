@@ -5,12 +5,15 @@ import {
   getHotel,
   updateHotel,
   deleteHotel,
+  filterHotels,
 } from "../controllers/hotel-controller.js";
 const router = Router();
 
 router.use("/insertHotels", insertHotels);
 
 router.get("/", getHotels);
+
+router.get("/filter", filterHotels);
 
 router.get("/:id", getHotel);
 
