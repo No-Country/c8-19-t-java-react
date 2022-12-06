@@ -12,7 +12,10 @@ const WishListPage = () => {
   console.log(data);
 
   return (
-    <div className="md:container  pt-[10rem] w-full gap-4">
+    <div className="md:container  pt-[10rem] w-full gap-4 min-h-screen">
+      <h2 className="text-slate font-bold text-xl mb-4 ">
+        Tus hoteles favoritos
+      </h2>
       <div className="flex flex-col gap-4 shadow-md mb-8">
         {data?.favHotels.map((hotel) => (
           <CardHotel key={hotel._id} hotel={hotel} addedToFavs={true} />

@@ -20,7 +20,7 @@ const Search = () => {
   const navigate = useNavigate();
   const [searchInputs, setsearchInputs] = useState({
     location: "",
-    date: new Date(),
+    initialDate: new Date(),
     amount: "",
   });
 
@@ -29,7 +29,11 @@ const Search = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+    if ((searchInputs.location = "")) {
+      console.log("debes completar este campo");
+      return;
+    }
     console.log(searchInputs);
     navigate("/resultsPage");
   };
@@ -47,12 +51,13 @@ const Search = () => {
               onChange={handleChange}
               value={searchInputs.location}
               fullWidth
+              required={"Enter a valid "}
             />
             <BsSearch className="absolute  right-4 top-[35%]" />
           </div>
 
           <div className="relative col-span-2 md:col-span-1 w-full border-2 border-orange ">
-            <InputCalendar value={searchInputs.date} />
+            <InputCalendar value={searchInputs.initialDate} />
           </div>
           <div className="relative col-span-2 md:col-span-1 border-2 border-orange  ">
             <FormControl fullWidth>
@@ -84,6 +89,7 @@ const Search = () => {
             </FormControl>
           </div>
           <button
+            type="submit"
             onClick={handleSubmit}
             className="text-white w-[240px] mx-auto col-span-2  md:col-span-1  font-bold text-md rounded-xl bg-blue/80 sm:bg-blue  py-2 hover:bg-blue/90 ease-in duration-100 "
           >

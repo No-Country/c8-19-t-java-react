@@ -4,16 +4,25 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useRemoveFavMutation } from "../redux/api/sunnyApi";
 import { useAddToFavMutation } from "../redux/api/sunnyApi";
+import { useState } from "react";
+import LoginModal from "./LoginModal";
 
 const CardHotel = ({ hotel, addedToFavs }) => {
   const [addToFav] = useAddToFavMutation();
+  const [buttonClicked, setbuttonClicked] = useState(false);
 
   const [removeFav] = useRemoveFavMutation();
 
-  const user = useSelector((state) => state.auth.user);
+  const { user, token } = useSelector((state) => state.auth);
 
   const handleFav = async (e) => {
     e.preventDefault();
+    setbuttonClicked(true);
+
+    if (!user.token) {
+      console.log("debes estar autenticado");
+      return;
+    }
 
     const newFavHotel = {
       id: hotel._id,
@@ -25,6 +34,12 @@ const CardHotel = ({ hotel, addedToFavs }) => {
 
   const handleFavDelete = (e) => {
     e.preventDefault();
+    setbuttonClicked(true);
+
+    if (!user.token) {
+      console.log("debes estar autenticado");
+      return;
+    }
 
     const newFavHotel = {
       id: hotel._id,
@@ -69,7 +84,8 @@ const CardHotel = ({ hotel, addedToFavs }) => {
               </ul>
             </div>
           </div>
-          <div className="flex flex-col justify-between items-end h-full">
+          <div className="flex flex-col justify-between items-end h-full relative">
+            {buttonClicked && !user.token && <LoginModal />}
             <button className="bg-white shadow-md  p-1 w-[50px] h-[50px] flex justify-center items-center rounded-full">
               {addedToFavs ? (
                 <AiOutlineDelete
