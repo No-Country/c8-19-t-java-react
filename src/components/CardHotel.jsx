@@ -5,13 +5,11 @@ import { Link } from "react-router-dom";
 import { useAddToFavMutation } from "../redux/api/sunnyApi";
 
 const CardHotel = ({ hotel, addedToFavs }) => {
-  const [addToFav, result] = useAddToFavMutation();
+  const [addToFav, { data, isLoading, error }] = useAddToFavMutation();
 
   const user = useSelector((state) => state.auth.user);
 
-  console.log(user);
-
-  const handleFav = (e) => {
+  const handleFav = async (e) => {
     e.preventDefault();
     // e.stopPropagation();
     console.log("hola");
@@ -20,9 +18,10 @@ const CardHotel = ({ hotel, addedToFavs }) => {
       name: user,
     };
     console.log(newFavHotel);
-    addToFav(newFavHotel);
-    console.log(result);
+    await addToFav(newFavHotel);
   };
+
+  console.log(data);
 
   return (
     <Link to={`/${hotel._id}`}>
