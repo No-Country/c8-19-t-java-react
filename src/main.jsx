@@ -18,7 +18,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PanelPage from "./pages/PanelPage";
 import Checkout from "./pages/Checkout";
-import WishList from "./components/WishList";
+
 import WishListPage from "./pages/WishListPage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

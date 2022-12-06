@@ -27,6 +27,13 @@ export const sunnyApi = createApi({
         body: body,
       }),
     }),
+    addToFav: builder.mutation({
+      query: ({ id, ...rest }) => ({
+        url: `/favorites/${id}`,
+        method: "POST",
+        body: rest,
+      }),
+    }),
 
     createComment: builder.mutation({
       query: ({ id, ...rest }) => ({
@@ -45,4 +52,5 @@ export const {
   useSignInMutation,
   useSignUpMutation,
   useCreateCommentMutation,
+  useAddToFavMutation,
 } = sunnyApi;
