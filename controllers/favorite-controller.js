@@ -21,9 +21,13 @@ const addFavHotel = async (req, res) => {
     console.log(favHotels);
 
     res.json({
-      favHotels,
+      msg: "Agregado a favoritos",
     });
-  } catch (error) {}
+  } catch (error) {
+    res.status(400).json({
+      error,
+    });
+  }
 };
 
 const removeFavHotel = async (req, res) => {
@@ -41,11 +45,9 @@ const removeFavHotel = async (req, res) => {
     );
     await updatedHotels.save();
 
-    if (updatedHotels) {
-      return res.status(200).json({
-        msg: "Hotel removido de favoritos exitosamente",
-      });
-    }
+    return res.status(200).json({
+      msg: "Hotel removido de favoritos exitosamente",
+    });
   } catch (error) {
     res.status(400).json({
       error,

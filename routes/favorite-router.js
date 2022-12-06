@@ -3,8 +3,11 @@ import {
   addFavHotel,
   removeFavHotel,
 } from "../controllers/favorite-controller.js";
+import { getUserFavorites } from "../controllers/user-controller.js";
 
 const router = Router();
+
+router.get("/:id", getUserFavorites);
 
 router.post("/:id", addFavHotel);
 

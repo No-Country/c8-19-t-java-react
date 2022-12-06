@@ -41,6 +41,29 @@ const getUserById = async (req, res) => {
   }
 };
 
+const getUserFavorites = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await User.findById(id);
+
+    if (!user) {
+      res.status(400).json({
+        msg: "No se encotnro el usuario",
+      });
+    }
+
+    const favHotels = user.favorites;
+
+    res.status(200).json({
+      favHotels,
+    });
+  } catch (error) {
+    res.status(400).json({
+      error,
+    });
+  }
+};
+
 const updateUser = async (req, res) => {
   const { id } = req.params;
 
@@ -82,4 +105,4 @@ const deleteUser = async (req, res) => {
   }
 };
 
-export { getUserById, getAllUser, updateUser, deleteUser };
+export { getUserById, getAllUser, updateUser, deleteUser, getUserFavorites };
