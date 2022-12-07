@@ -33,6 +33,7 @@ const hotels = [
         amount: 4,
       },
     ],
+    location: "BUENOS AIRES",
   },
   {
     title: "Up Tribe Hotel",
@@ -77,6 +78,7 @@ const hotels = [
         amount: 3,
       },
     ],
+    location: "BUENOS AIRES",
   },
   {
     title: "Bisonte Libertad",
@@ -121,6 +123,7 @@ const hotels = [
         amount: 3,
       },
     ],
+    location: "BUENOS AIRES",
   },
   {
     title: "Poetry Building",
@@ -156,6 +159,7 @@ const hotels = [
         amount: 3,
       },
     ],
+    location: "BUENOS AIRES",
   },
   {
     title: "Regal Pacific Buenos Aires",
@@ -191,6 +195,7 @@ const hotels = [
         amount: 3,
       },
     ],
+    location: "LUJAN",
   },
 ];
 

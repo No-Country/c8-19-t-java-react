@@ -24,13 +24,13 @@ app.use("/api/user", userRouter);
 app.use("/api/comments", commentsRouter);
 app.use("/api/favorites", favoriteRouter);
 
-// app.use("/insertAllHotels", async (req, res) => {
-//   const allHotels = await Hotel.insertMany(hotels);
+app.use("/insertAllHotels", async (req, res) => {
+  const allHotels = await Hotel.insertMany(hotels);
 
-//   res.json({
-//     allHotels,
-//   });
-// });
+  res.json({
+    allHotels,
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`servidor escuchando al puerto ${PORT}`);

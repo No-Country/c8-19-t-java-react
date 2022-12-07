@@ -49,6 +49,9 @@ export const hotelSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
+  location: {
+    type: String,
+  },
 });
 
 export const Hotel = model("Hotel", hotelSchema);
