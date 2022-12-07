@@ -23,7 +23,6 @@ const Comments = ({ data }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setbuttonClicked(true);
 
     if (!user.token) {
