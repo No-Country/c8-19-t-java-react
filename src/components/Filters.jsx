@@ -10,10 +10,10 @@ import {
 } from '../redux/slices/filterSlice';
 
 const Filters = ({onToggleFilters}) => {
-    const [menuRating, setMenuRating] = useState(true);
-    const [menuPrice, setMenuPrice] = useState(true);
-    const [menuCategory, setMenuCategory] = useState(true);
-    const [menuAmount, setMenuAmount] = useState(true);
+    const [menuRating, setMenuRating] = useState(false);
+    const [menuPrice, setMenuPrice] = useState(false);
+    const [menuCategory, setMenuCategory] = useState(false;
+    const [menuAmount, setMenuAmount] = useState(false);
     
     const filter = useSelector(state => state.filter);
 
