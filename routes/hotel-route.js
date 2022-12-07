@@ -6,6 +6,7 @@ import {
   updateHotel,
   deleteHotel,
   filterHotels,
+  locationFilter
 } from "../controllers/hotel-controller.js";
 const router = Router();
 
@@ -14,6 +15,7 @@ router.use("/insertHotels", insertHotels);
 router.get("/", getHotels);
 
 router.get("/filter", filterHotels);
+router.get("/location", locationFilter);
 
 router.get("/:id", getHotel);
 

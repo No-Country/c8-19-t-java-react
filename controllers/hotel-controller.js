@@ -110,7 +110,6 @@ const deleteHotel = async (req, res) => {
 
 const filterHotels = async (req, res) => {
   const { rating, amount, min, max } = req.query;
-
   try {
     // const filters = {
     //   rating: Number(rating) || undefined,
@@ -149,6 +148,23 @@ const filterHotels = async (req, res) => {
   }
 };
 
+const locationFilter = async (req, res) => {
+  const { location } = req.query;
+  
+  try {
+    const findLocation = await Hotel.find({location});
+
+    res.json({
+      findLocation
+    });
+  } catch (error) {
+    res.status(500).json({
+      error
+    });
+  }
+ 
+}
+
 export {
   insertHotels,
   getHotels,
@@ -156,4 +172,5 @@ export {
   updateHotel,
   deleteHotel,
   filterHotels,
+  locationFilter,
 };
