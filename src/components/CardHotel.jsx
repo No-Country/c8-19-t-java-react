@@ -3,7 +3,7 @@ import { AiOutlineHeart, AiOutlineWifi } from "react-icons/ai";
 
 const CardHotel = ({ hotel }) => {
   return (
-    <div className="flex gap-2  bg-white rounded-xl overflow-hidden">
+    <div className="flex flex-col md:flex-row gap-2 items-center bg-white rounded-xl overflow-hidden">
       <figure className="w-[400px] h-[240px] object-cover bg-slate">
         <img
           className="w-full h-full  object-cover bg-slate"
@@ -25,7 +25,7 @@ const CardHotel = ({ hotel }) => {
           </span>
           <div>
             <span className="text-slate font-semibold text-md">Services:</span>
-            <ul className="flex gap-3 text-slate capitalize ">
+            <ul className="flex gap-3 text-slate capitalize flex-wrap pt-2">
               {Object.keys(hotel.services).map((service, index) => (
                 <li className="text-sm" key={index}>
                   {service}
@@ -34,15 +34,19 @@ const CardHotel = ({ hotel }) => {
             </ul>
           </div>
         </div>
-        <div className="flex flex-col justify-between items-end h-full">
+        <div className="flex flex-col gap-12 justify-between items-end h-full">
           <button className="bg-white shadow-md  p-1 w-[50px] h-[50px] flex justify-center items-center rounded-full">
             <AiOutlineHeart className=" text-slate/40 text-2xl font-thin" />
           </button>
-          <button className="bg-blue self-end hover:bg-blue/75 duration-300  text-white capitalize font-semibold w-[200px] rounded-xl p-4">
+          <button className="hidden md:flex bg-blue self-end hover:bg-blue/75 duration-300  text-white capitalize font-semibold w-full rounded-xl p-4 whitespace-nowrap">
             ver disponibilidad
           </button>
         </div>
+        
       </div>
+      <button className="block md:hidden bg-blue self-end hover:bg-blue/75 duration-300 text-white capitalize font-semibold w-full rounded-xl p-4 whitespace-nowrap">
+            ver disponibilidad
+          </button>
     </div>
   );
 };
