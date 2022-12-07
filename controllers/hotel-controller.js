@@ -150,20 +150,19 @@ const filterHotels = async (req, res) => {
 
 const locationFilter = async (req, res) => {
   const { location } = req.query;
-  
+
   try {
-    const findLocation = await Hotel.find({location});
+    const findLocation = await Hotel.find({ location });
 
     res.json({
-      findLocation
+      findLocation,
     });
   } catch (error) {
     res.status(500).json({
-      error
+      error,
     });
   }
- 
-}
+};
 
 export {
   insertHotels,
