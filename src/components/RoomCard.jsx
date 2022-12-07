@@ -1,12 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
+import { DateRange } from "react-date-range";
+import { format } from "date-fns";
 import { Link } from "react-router-dom";
+import "react-date-range/dist/styles.css"; // main css file
+import "react-date-range/dist/theme/default.css"; // theme css file
+import { useAddHotelDatesMutation } from "../redux/api/sunnyApi";
 
 const RoomCard = ({ data }) => {
+  const [openCalendar, setOpenCalendar] = useState(false);
+
+  const [addHotelsDates, { data: roomData }] = useAddHotelDatesMutation();
+
+  const [date, setDate] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
+
+  const handleClick = () => {
+    const newDates = {
+      id: data._id,
+      dates: date,
+    };
+
+    addHotelsDates(newDates);
+  };
+
   return (
     <section className="bg-gray">
       <div className="md:container">
         {data.map((room, index) => (
-          <div key={index} className="px-3 lg:px-7 pb-10 pt-4 border border-gray mb-10">
+          <div
+            key={index}
+            className="px-3 lg:px-7 pb-10 pt-4 border border-gray mb-10"
+          >
             <h3 className="text-blue text-base pb-2 font-medium">
               {room.title}
             </h3>
@@ -50,11 +79,28 @@ const RoomCard = ({ data }) => {
                   <span className="text-blue">MXN$ 1,244</span>
                   <br /> + MXN$ 236 IVA
                 </p>
-                <Link to="/checkout">
-                  <button className="text-white w-full md:w-4/5 text-md rounded bg-blue py-2 hover:bg-blue/90 ease-in duration-100 ">
-                    Reserva
-                  </button>
-                </Link>
+
+                <button
+                  onClick={handleClick}
+                  className="text-white w-full md:w-4/5 text-md rounded bg-blue py-2 hover:bg-blue/90 ease-in duration-100 "
+                >
+                  Reserva
+                </button>
+
+                <button onClick={() => setOpenCalendar((prev) => !prev)}>
+                  reservar Fechas
+                </button>
+                <div className="relative">
+                  {openCalendar && (
+                    <DateRange
+                      className="absolute top-0 z-40 left-0"
+                      editableDateInputs={true}
+                      onChange={(item) => setDate([item.selection])}
+                      moveRangeOnFirstSelection={false}
+                      ranges={date}
+                    />
+                  )}
+                </div>
               </div>
             </div>
           </div>

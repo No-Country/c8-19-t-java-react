@@ -20,31 +20,34 @@ import PanelPage from "./pages/PanelPage";
 import Checkout from "./pages/Checkout";
 
 import WishListPage from "./pages/WishListPage";
+import DaysProvider from "./context/DaysProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Provider store={store}>
-      <ScrollToTop />
-      <ToastContainer />
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<Home />} />
-          <Route path="/resultsPage" element={<ResultsPage />} />
+      <DaysProvider>
+        <ScrollToTop />
+        <ToastContainer />
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<Home />} />
+            <Route path="/resultsPage" element={<ResultsPage />} />
 
-          {/* Ruta protegida */}
-          <Route element={<ProtectedRoute />}>
-            <Route path="/panel" element={<PanelPage />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/wishList" element={<WishListPage />} />
+            {/* Ruta protegida */}
+            <Route element={<ProtectedRoute />}>
+              <Route path="/panel" element={<PanelPage />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/wishList" element={<WishListPage />} />
+            </Route>
+
+            <Route path="/:id" element={<PlaceDetails />} />
+
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
           </Route>
-
-          <Route path="/:id" element={<PlaceDetails />} />
-
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Route>
-      </Routes>
+        </Routes>
+      </DaysProvider>
     </Provider>
   </BrowserRouter>
 );

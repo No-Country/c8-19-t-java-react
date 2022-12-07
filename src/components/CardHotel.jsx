@@ -6,10 +6,16 @@ import { useRemoveFavMutation } from "../redux/api/sunnyApi";
 import { useAddToFavMutation } from "../redux/api/sunnyApi";
 import { useState } from "react";
 import LoginModal from "./LoginModal";
+import { useContext } from "react";
+import { DaysContext } from "../context/DaysProvider";
 
 const CardHotel = ({ hotel, addedToFavs }) => {
   const [addToFav] = useAddToFavMutation();
   const [buttonClicked, setbuttonClicked] = useState(false);
+
+  const { days } = useContext(DaysContext);
+
+  console.log(days);
 
   const [removeFav] = useRemoveFavMutation();
 
@@ -19,7 +25,7 @@ const CardHotel = ({ hotel, addedToFavs }) => {
     e.preventDefault();
     setbuttonClicked(true);
 
-    if (!user.token) {
+    if (!token) {
       console.log("debes estar autenticado");
       return;
     }
@@ -36,7 +42,7 @@ const CardHotel = ({ hotel, addedToFavs }) => {
     e.preventDefault();
     setbuttonClicked(true);
 
-    if (!user.token) {
+    if (!token) {
       console.log("debes estar autenticado");
       return;
     }
@@ -85,7 +91,6 @@ const CardHotel = ({ hotel, addedToFavs }) => {
             </div>
           </div>
           <div className="flex flex-col justify-between items-end h-full relative">
-            {buttonClicked && !user.token && <LoginModal />}
             <button className="bg-white shadow-md  p-1 w-[50px] h-[50px] flex justify-center items-center rounded-full">
               {addedToFavs ? (
                 <AiOutlineDelete
@@ -99,6 +104,16 @@ const CardHotel = ({ hotel, addedToFavs }) => {
                 />
               )}
             </button>
+            <div>
+              {days ? (
+                <p>
+                  $ x {days} noches {days ? hotel.price * days : hotel.price}
+                </p>
+              ) : (
+                <p>$ x noche {hotel.price}</p>
+              )}
+            </div>
+
             <button className="bg-blue self-end hover:bg-blue/75 duration-300  text-white capitalize font-semibold w-[200px] rounded-xl p-4">
               ver disponibilidad
             </button>

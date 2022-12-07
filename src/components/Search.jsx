@@ -1,92 +1,96 @@
 import { AiOutlineCalendar } from "react-icons/ai";
 import { BsPerson, BsSearch } from "react-icons/bs";
 
-import { useState } from "react";
-
-import InputCalendar from "./Calendar";
-import {
-  FormControl,
-  InputLabel,
-  Menu,
-  MenuItem,
-  Select,
-  TextField,
-} from "@mui/material";
+import { useContext, useState } from "react";
+import "react-date-range/dist/styles.css"; // main css file
+import "react-date-range/dist/theme/default.css"; // theme css file
 import { useNavigate } from "react-router-dom";
+import { DateRange } from "react-date-range";
+import { format } from "date-fns";
+import { DaysContext } from "../context/DaysProvider";
 
 const persons = [1, 2, 3, 4];
 
 const Search = () => {
   const navigate = useNavigate();
-  const [searchInputs, setsearchInputs] = useState({
-    location: "",
-    initialDate: new Date(),
-    amount: "",
+  const [openCalendar, setOpenCalendar] = useState(false);
+  const [date, setDate] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
+
+  const { setDays } = useContext(DaysContext);
+
+  const [searchInputs, setSearchInputs] = useState({
+    place: "",
+    date: [],
+    amount: 0,
   });
 
   const handleChange = (e) => {
-    setsearchInputs({ ...searchInputs, [e.target.name]: e.target.value });
+    setSearchInputs({ ...searchInputs, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     // e.preventDefault();
-    if ((searchInputs.location = "")) {
-      console.log("debes completar este campo");
-      return;
-    }
-    console.log(searchInputs);
+
+    const diff = date[0].endDate - date[0].startDate;
+    setDays(diff / (1000 * 60 * 60 * 24));
     navigate("/resultsPage");
   };
 
   return (
     <div className="md:block z-20 mb-10">
-      <form className="bg-white/80 sm:bg-white shadow-md rounded-md px-6 py-2 m-2 ">
-        <div className="grid bg-slate-200 items-center grid-cols-2 sm:grid-cols-4 gap-2 md:grid-cols-4">
-          <div className="relative col-span-2  md:col-span-1 border-2 border-orange ">
-            <TextField
-              id="outlined-basic"
-              label="Busca tu destino"
-              variant="outlined"
-              name="location"
+      <form className="bg-white/80 sm:bg-white shadow-md rounded-md  m-2 ">
+        <div className="grid bg-slate-200 items-center py-2 grid-cols-2 sm:grid-cols-4 gap-6 md:grid-cols-4  border-2 border-orange">
+          <div className="relative col-span-2  md:col-span-1 px-4 ">
+            <input
+              name="place"
+              value={searchInputs.place}
               onChange={handleChange}
-              value={searchInputs.location}
-              fullWidth
-              required={"Enter a valid "}
+              className="w-full outline-none"
+              placeholder="Busca por lugar"
             />
-            <BsSearch className="absolute  right-4 top-[35%]" />
+            <BsSearch className="absolute  right-4 top-1 text-md" />
           </div>
 
-          <div className="relative col-span-2 md:col-span-1 w-full border-2 border-orange ">
-            <InputCalendar value={searchInputs.initialDate} />
+          <div className="relative col-span-2 md:col-span-1 w-full  ">
+            <span>{`${format(date[0].startDate, "MM/dd/yyyy")} hasta ${format(
+              date[0].endDate,
+              "MM/dd/yyyy"
+            )}`}</span>
+            {openCalendar && (
+              <DateRange
+                className="absolute top-10 z-40 left-0"
+                editableDateInputs={true}
+                onChange={(item) => setDate([item.selection])}
+                moveRangeOnFirstSelection={false}
+                ranges={date}
+              />
+            )}
+            <AiOutlineCalendar
+              onClick={() => setOpenCalendar((prev) => !prev)}
+              className="absolute  right-4 top-0 text-xl"
+            />
           </div>
-          <div className="relative col-span-2 md:col-span-1 border-2 border-orange  ">
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">
-                Cantidad de personas
-              </InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={searchInputs.amount}
-                label="Age"
-                onChange={handleChange}
-                fullWidth
-              >
-                {persons.map((person) => (
-                  <MenuItem
-                    sx={{
-                      display: "flex",
-                      width: "100%",
-                    }}
-                    key={person}
-                    value={person}
-                  >
-                    <BsPerson />
-                    <span className="ml-8"> {person}</span>
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
+          <div className="relative col-span-2 md:col-span-1   ">
+            <select
+              name="amount"
+              className="w-full"
+              value={searchInputs.amount}
+              // label="Age"
+              onChange={handleChange}
+            >
+              {persons.map((person) => (
+                <option key={person} value={person}>
+                  <BsPerson />
+                  <span className="ml-8"> {person}</span>
+                </option>
+              ))}
+            </select>
           </div>
           <button
             type="submit"

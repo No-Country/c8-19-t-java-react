@@ -13,6 +13,13 @@ export const sunnyApi = createApi({
       query: (id) => `/hotels/${id}`,
       providesTags: ["Review"],
     }),
+    addHotelDates: builder.mutation({
+      query: ({ id, ...rest }) => ({
+        url: `/hotels/${id}`,
+        method: "POST",
+        body: rest,
+      }),
+    }),
     signIn: builder.mutation({
       query: (body) => ({
         url: "/auth/signIn",
@@ -69,4 +76,5 @@ export const {
   useAddToFavMutation,
   useGetFavHotelsQuery,
   useRemoveFavMutation,
+  useAddHotelDatesMutation,
 } = sunnyApi;
