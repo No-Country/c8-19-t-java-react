@@ -109,16 +109,23 @@ const deleteHotel = async (req, res) => {
 };
 
 const filterHotels = async (req, res) => {
-  const { rating, amount, min, max } = req.query;
+  const { rating, amount, price } = req.query;
   try {
-    const findHotels = await Hotel.find({
-      rating: Number(rating),
-      "rooms.amount": Number(amount) || undefined,
-      price: {
-        $lte: Number(max) || 100000,
-        $gte: min || 0,
-      },
-    });
+    let query = {};
+
+    if (rating) {
+      query.rating = rating;
+    }
+
+    if (price) {
+      query.price = Number(price);
+    }
+
+    if (amount) {
+      query.amount = Number(amount);
+    }
+
+    const findHotels = await Hotel.find(query);
 
     res.json({
       findHotels,
