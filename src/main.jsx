@@ -31,7 +31,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<Home />} />
-            <Route path="/resultsPage" element={<ResultsPage />} />
+            <Route path="/resultsPage/:location" element={<ResultsPage />} />
 
             {/* Ruta protegida */}
             <Route element={<ProtectedRoute />}>

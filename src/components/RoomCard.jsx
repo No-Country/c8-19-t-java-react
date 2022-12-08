@@ -9,6 +9,8 @@ import { useAddHotelDatesMutation } from "../redux/api/sunnyApi";
 const RoomCard = ({ data }) => {
   const [openCalendar, setOpenCalendar] = useState(false);
 
+  console.log(data);
+
   const [addHotelsDates, { data: roomData }] = useAddHotelDatesMutation();
 
   const [date, setDate] = useState([

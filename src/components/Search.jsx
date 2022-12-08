@@ -8,12 +8,16 @@ import { useNavigate } from "react-router-dom";
 import { DateRange } from "react-date-range";
 import { format } from "date-fns";
 import { DaysContext } from "../context/DaysProvider";
+import { useSearchParams } from "react-router-dom/dist";
+import { createSearchParams } from "react-router-dom";
 
 const persons = [1, 2, 3, 4];
 
 const Search = () => {
   const navigate = useNavigate();
   const [openCalendar, setOpenCalendar] = useState(false);
+  const [searchParams, setSearchParams] = useState();
+
   const [date, setDate] = useState([
     {
       startDate: new Date(),
@@ -26,7 +30,6 @@ const Search = () => {
 
   const [searchInputs, setSearchInputs] = useState({
     place: "",
-    date: [],
     amount: 0,
   });
 
@@ -35,11 +38,12 @@ const Search = () => {
   };
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
 
     const diff = date[0].endDate - date[0].startDate;
     setDays(diff / (1000 * 60 * 60 * 24));
-    navigate("/resultsPage");
+
+    navigate(`resultsPage/${searchInputs.place}`);
   };
 
   return (

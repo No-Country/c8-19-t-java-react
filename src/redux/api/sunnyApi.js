@@ -13,6 +13,9 @@ export const sunnyApi = createApi({
       query: (id) => `/hotels/${id}`,
       providesTags: ["Review"],
     }),
+    getHotelsByLocation: builder.query({
+      query: (location) => `/hotels/search/?location=${location}`,
+    }),
     addHotelDates: builder.mutation({
       query: ({ id, ...rest }) => ({
         url: `/hotels/${id}`,
@@ -77,4 +80,5 @@ export const {
   useGetFavHotelsQuery,
   useRemoveFavMutation,
   useAddHotelDatesMutation,
+  useGetHotelsByLocationQuery,
 } = sunnyApi;
