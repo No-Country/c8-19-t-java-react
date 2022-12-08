@@ -109,7 +109,7 @@ const deleteHotel = async (req, res) => {
 };
 
 const filterHotels = async (req, res) => {
-  const { rating, amount, price } = req.query;
+  const { rating, price } = req.query;
   try {
     let query = {};
 
@@ -121,9 +121,9 @@ const filterHotels = async (req, res) => {
       query.price = Number(price);
     }
 
-    if (amount) {
-      query.amount = Number(amount);
-    }
+    // if (amount) {
+    //   query.amount = Number(amount);
+    // }
 
     const findHotels = await Hotel.find(query);
 
