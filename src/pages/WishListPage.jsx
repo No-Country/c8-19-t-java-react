@@ -13,16 +13,20 @@ const WishListPage = () => {
 
   return (
     <div className="md:container  pt-[10rem] w-full gap-4 min-h-screen">
-      <h2 className="text-slate font-bold text-xl mb-4 ">
-        Tus hoteles favoritos
-      </h2>
-      <div className="flex flex-col gap-4 shadow-md mb-8">
+      <div className="flex flex-col gap-4 mb-8">
         {data?.favHotels.length === 0 ? (
-          <p>No hay hoteles</p>
+          <div className="flex justify-center items-center">
+            <p className="text-2xl">Aun no se agregaron hoteles favoritos</p>
+          </div>
         ) : (
-          data?.favHotels.map((hotel) => (
-            <CardHotel key={hotel._id} hotel={hotel} addedToFavs={true} />
-          ))
+          <>
+            <h2 className="text-2xl text-slate  font-semibold">
+              Tus hoteles favoritos
+            </h2>
+            {data?.favHotels.map((hotel) => (
+              <CardHotel key={hotel._id} hotel={hotel} addedToFavs={true} />
+            ))}
+          </>
         )}
       </div>
     </div>
