@@ -5,6 +5,7 @@ import Search from "../components/Search";
 import image24 from "../img/image 24.png";
 import image25 from "../img/image 25.png";
 import { toast } from "react-toastify";
+import Categories from "../components/Categories";
 
 const Home = () => {
   const { data } = useGetAllHotelsQuery();
@@ -21,11 +22,7 @@ const Home = () => {
 
       <div className=" px-[1rem] md:container mx-auto">
         <Search />
-        <Carrusel
-          title="Escapadas"
-          subtitle="Destinos en Mexico que tienne mucho para ofrecer"
-          data={data?.hotels}
-        />
+        <Categories />
 
         <Carrusel
           title="Casas y departamentos que les encantan a los huéspedes"

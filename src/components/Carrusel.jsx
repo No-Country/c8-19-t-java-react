@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { AiFillStar } from "react-icons/ai";
 import { HiOutlineOfficeBuilding } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import { Rating } from "@mui/material";
 
 const Carrusel = ({ title, subtitle, data }) => {
   console.log(data);
@@ -58,10 +59,10 @@ const Carrusel = ({ title, subtitle, data }) => {
       <Slider {...settings}>
         {data?.map((item, index) => (
           <Link to={`/${item._id}`} key={index}>
-            <div className=" md:max-w-[220px]  lg:max-w-[260px] overflow-hidden rounded-t-xl">
-              <figure className="block overflow-hidden">
+            <div className="md:max-w-[220px] lg:max-w-[260px] overflow-hidden ">
+              <figure className=" overflow-hidden md:h-[200px] lg:h-[220px] rounded-t-xl">
                 <img
-                  className=" w-full md:h-[200px] lg:h-[220px] object-cover hover:scale-[1.2] duration-500"
+                  className="w-full h-[100%] object-cover hover:scale-[1.1] duration-500"
                   src={item.pictures[0]}
                   alt={item.title}
                 />
@@ -70,6 +71,14 @@ const Carrusel = ({ title, subtitle, data }) => {
                 <h4 className="text-slate-900 text-xl mb-1 font-semibold">
                   {item.title}
                 </h4>
+                <div>
+                  <Rating
+                    name="read-only"
+                    value={item.rating}
+                    precision={0.5}
+                    readOnly
+                  />
+                </div>
                 <p className="text-gray-500 font-thin text-sm">
                   {item.amount} lugares para reservar
                 </p>
