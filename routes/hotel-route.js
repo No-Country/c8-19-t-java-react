@@ -7,6 +7,7 @@ import {
   deleteHotel,
   filterHotels,
   locationFilter,
+  addRoomDates,
 } from "../controllers/hotel-controller.js";
 const router = Router();
 
@@ -22,6 +23,8 @@ router.get("/:id", getHotel);
 router.post("/insertHotels", insertHotels);
 
 router.put("/:id", updateHotel);
+
+router.post("/:hotelId/rooms/:roomId", addRoomDates);
 
 router.delete("/:id", deleteHotel);
 

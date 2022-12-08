@@ -15,10 +15,12 @@ const roomSchema = new Schema(
     amount: {
       type: Number,
     },
-    unavailableDates: [{ type: [Date] }],
+    unavailableDates: { type: [Date] },
   },
   { timestamps: true }
 );
+
+export const Room = model("Room", roomSchema);
 
 export const hotelSchema = new Schema({
   title: {

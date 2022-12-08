@@ -1,5 +1,5 @@
 // import hotels from "../data/hotels.js";
-import { Hotel } from "../models/hotelSchema.js";
+import { Hotel, Room } from "../models/hotelSchema.js";
 
 const insertHotels = async (req, res) => {
   const { state, ...rest } = req.body;
@@ -111,24 +111,6 @@ const deleteHotel = async (req, res) => {
 const filterHotels = async (req, res) => {
   const { rating, amount, min, max } = req.query;
   try {
-    // const filters = {
-    //   rating: Number(rating) || undefined,
-    //   price: Number(price) || undefined,
-    //   amount: Number(amount) || undefined,
-    // };
-
-    // let query = {};
-
-    // if (rating) {
-    //   query.rating = rating;
-    // }
-
-    // if (price) {
-    //   query.price = Number(price);
-    // }
-
-    // const findHotels = await Hotel.find(query);
-
     const findHotels = await Hotel.find({
       rating: Number(rating),
       "rooms.amount": Number(amount) || undefined,
@@ -164,6 +146,49 @@ const locationFilter = async (req, res) => {
   }
 };
 
+const addRoomDates = async (req, res) => {
+  const { hotelId, roomId } = req.params;
+  const { date } = req.body;
+
+  try {
+    // const hotel = await Hotel.findByIdAndUpdate(id, {
+    //   $push: { [`rooms[0].suite ejecutiva.unavailableDates`]: { date } },
+    // });
+
+    // const hotel = await Hotel.findById(hotelId);
+
+    // console.log(hotel);
+
+    const findRoom = hotel.rooms.find((room) => {
+      return room._id === roomId;
+    });
+
+    const hotel = await Hotel.findByIdAndUpdate(id, {
+      $push: { [`rooms.unavailableDates`]: date },
+    });
+
+    // const room = Room.findByIdAndUpdate(id, {
+    //   $addToSet: {
+    //     unavailableDates: date,
+    //   },
+    // });
+
+    console.log(hotel);
+
+    if (!hotel) {
+      res.status(401).json({
+        msg: "No se encontro niggun cuarto",
+      });
+    }
+
+    res.status(200).json({
+      msg: "Fechas reservadas con exito",
+
+      hotel,
+    });
+  } catch (error) {}
+};
+
 export {
   insertHotels,
   getHotels,
@@ -172,4 +197,5 @@ export {
   deleteHotel,
   filterHotels,
   locationFilter,
+  addRoomDates,
 };
