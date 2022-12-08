@@ -27,12 +27,7 @@ const Filters = ({ onToggleFilters }) => {
 
   const prices = {
     title: "Precio x noche",
-    items: [
-      `Entre ${4000} y ${6000}`,
-      `Entre ${6000} y ${8000}`,
-      `Entre ${8000} y ${10000}`,
-      `Más de ${10000}`,
-    ],
+    items: [96, 98, 200, 220, 250, 500],
     menuOpen: false,
   };
 

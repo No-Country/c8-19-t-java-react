@@ -1,10 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  price: {
-    min: null,
-    max: null,
-  },
+  price: 100,
   category: "",
   amount: 4,
   rating: 5,
@@ -15,8 +12,7 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     setPrice: (state, action) => {
-      state.price.min = action.payload.split(" ").slice(1, 2);
-      state.price.max = action.payload.split(" ").slice(3, 4);
+      state.price = action.payload;
     },
     setCategory: (state, action) => {
       state.category = action.payload;
