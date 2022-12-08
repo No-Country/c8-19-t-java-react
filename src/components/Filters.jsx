@@ -1,7 +1,9 @@
 import { Rating } from "@mui/material";
+import { useEffect } from "react";
 import { useState } from "react";
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 import { useDispatch, useSelector } from "react-redux";
+import { useGetHotelsByFilterQuery } from "../redux/api/sunnyApi";
 import {
   setAmount,
   setCategory,
@@ -19,7 +21,9 @@ const Filters = ({ onToggleFilters }) => {
 
   const dispatch = useDispatch();
 
-  console.log(filter);
+  const { data } = useGetHotelsByFilterQuery(filter);
+
+  console.log(data);
 
   const prices = {
     title: "Precio x noche",

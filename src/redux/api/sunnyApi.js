@@ -67,6 +67,11 @@ export const sunnyApi = createApi({
       }),
       invalidatesTags: ["Review"],
     }),
+
+    getHotelsByFilter: builder.query({
+      query: (filter) =>
+        `/hotels/filter/?rating=${filter.rating}&amount=${filter.amount}&price=${filter.price}`,
+    }),
   }),
 });
 
@@ -81,4 +86,5 @@ export const {
   useRemoveFavMutation,
   useAddHotelDatesMutation,
   useGetHotelsByLocationQuery,
+  useGetHotelsByFilterQuery,
 } = sunnyApi;
