@@ -24,17 +24,7 @@ const hotels = [
 
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui officiis maiores deserunt magni aliquam dolores, consequuntur eveniet ratione? Velit dolores vitae, praesentium ipsum facere quos id molestiae quia necessitatibus maxime magnam voluptates sequi, officiis, natus dignissimos placeat minus laborum. Ipsa fugit eligendi quis autem alias omnis sit quas iure dolorem voluptas aliquam architecto iusto cupiditate animi quisquam minima vel voluptatem fuga, at nihil. Cupiditate enim hic at veritatis magnam dolorem officia qui tenetur in earum repellat, expedita quidem numquam maxime pariatur adipisci perspiciatis dicta porro aspernatur itaque cum voluptatibus voluptas animi. Quae tempore fugit quaerat minus temporibus ducimus eligendi. Sunt!",
-    rooms: [
-      {
-        title: "suite ejecutiva",
-        pictures: [
-          "https://i.travelapi.com/hotels/1000000/550000/547000/546934/e2ab3a82_z.jpg",
-          "https://i.travelapi.com/hotels/1000000/550000/547000/546934/cf7ef581_z.jpg",
-        ],
-        price: 500,
-        amount: 4,
-      },
-    ],
+
     location: "buenos aires",
   },
   {
@@ -62,26 +52,7 @@ const hotels = [
 
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui officiis maiores deserunt magni aliquam dolores, consequuntur eveniet ratione? Velit dolores vitae, praesentium ipsum facere quos id molestiae quia necessitatibus maxime magnam voluptates sequi, officiis, natus dignissimos placeat minus laborum. Ipsa fugit eligendi quis autem alias omnis sit quas iure dolorem voluptas aliquam architecto iusto cupiditate animi quisquam minima vel voluptatem fuga, at nihil. Cupiditate enim hic at veritatis magnam dolorem officia qui tenetur in earum repellat, expedita quidem numquam maxime pariatur adipisci perspiciatis dicta porro aspernatur itaque cum voluptatibus voluptas animi. Quae tempore fugit quaerat minus temporibus ducimus eligendi. Sunt!",
-    rooms: [
-      {
-        title: "doble standard",
-        pictures: [
-          "https://photos.hotelbeds.com/giata/xxl/05/057938/057938a_hb_ro_025.jpg",
-          "https://photos.hotelbeds.com/giata/xxl/05/057938/057938a_hb_ro_037.jpg",
-        ],
-        price: 96,
-        amount: 2,
-      },
-      {
-        title: "superior triple room",
-        pictures: [
-          "https://photos.hotelbeds.com/giata/bigger/07/077698/077698a_hb_ro_024.jpg",
-          "https://photos.hotelbeds.com/giata/bigger/07/077698/077698a_hb_ro_025.jpg",
-        ],
-        price: 122,
-        amount: 3,
-      },
-    ],
+
     location: "buenos aires",
   },
   {
@@ -109,26 +80,7 @@ const hotels = [
 
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui officiis maiores deserunt magni aliquam dolores, consequuntur eveniet ratione? Velit dolores vitae, praesentium ipsum facere quos id molestiae quia necessitatibus maxime magnam voluptates sequi, officiis, natus dignissimos placeat minus laborum. Ipsa fugit eligendi quis autem alias omnis sit quas iure dolorem voluptas aliquam architecto iusto cupiditate animi quisquam minima vel voluptatem fuga, at nihil. Cupiditate enim hic at veritatis magnam dolorem officia qui tenetur in earum repellat, expedita quidem numquam maxime pariatur adipisci perspiciatis dicta porro aspernatur itaque cum voluptatibus voluptas animi. Quae tempore fugit quaerat minus temporibus ducimus eligendi. Sunt!",
-    rooms: [
-      {
-        title: "double standard",
-        pictures: [
-          "https://photos.hotelbeds.com/giata/xxl/05/057942/057942a_hb_ro_016.jpg",
-          "https://photos.hotelbeds.com/giata/xxl/05/057942/057942a_hb_ro_018.jpg",
-        ],
-        price: 98,
-        amount: 2,
-      },
-      {
-        title: "double superior",
-        pictures: [
-          "https://photos.hotelbeds.com/giata/xxl/05/057942/057942a_hb_ro_013.jpg",
-          "https://photos.hotelbeds.com/giata/xxl/05/057942/057942a_hb_ro_014.jpg",
-        ],
-        price: 120,
-        amount: 3,
-      },
-    ],
+
     location: "buenos aires",
   },
   {
@@ -156,17 +108,7 @@ const hotels = [
 
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui officiis maiores deserunt magni aliquam dolores, consequuntur eveniet ratione? Velit dolores vitae, praesentium ipsum facere quos id molestiae quia necessitatibus maxime magnam voluptates sequi, officiis, natus dignissimos placeat minus laborum. Ipsa fugit eligendi quis autem alias omnis sit quas iure dolorem voluptas aliquam architecto iusto cupiditate animi quisquam minima vel voluptatem fuga, at nihil. Cupiditate enim hic at veritatis magnam dolorem officia qui tenetur in earum repellat, expedita quidem numquam maxime pariatur adipisci perspiciatis dicta porro aspernatur itaque cum voluptatibus voluptas animi. Quae tempore fugit quaerat minus temporibus ducimus eligendi. Sunt!",
-    rooms: [
-      {
-        title: "triple standard",
-        pictures: [
-          "https://i.travelapi.com/hotels/5000000/4100000/4099900/4099826/d23db5d3_z.jpg",
-          "https://i.travelapi.com/hotels/5000000/4100000/4099900/4099826/d23db5d3_z.jpg",
-        ],
-        price: 250,
-        amount: 3,
-      },
-    ],
+
     location: "buenos aires",
   },
   {
@@ -194,17 +136,7 @@ const hotels = [
 
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui officiis maiores deserunt magni aliquam dolores, consequuntur eveniet ratione? Velit dolores vitae, praesentium ipsum facere quos id molestiae quia necessitatibus maxime magnam voluptates sequi, officiis, natus dignissimos placeat minus laborum. Ipsa fugit eligendi quis autem alias omnis sit quas iure dolorem voluptas aliquam architecto iusto cupiditate animi quisquam minima vel voluptatem fuga, at nihil. Cupiditate enim hic at veritatis magnam dolorem officia qui tenetur in earum repellat, expedita quidem numquam maxime pariatur adipisci perspiciatis dicta porro aspernatur itaque cum voluptatibus voluptas animi. Quae tempore fugit quaerat minus temporibus ducimus eligendi. Sunt!",
-    rooms: [
-      {
-        title: "superior double room",
-        pictures: [
-          "https://photos.hotelbeds.com/giata/xxl/07/077101/077101a_hb_ro_025.jpg",
-          "https://photos.hotelbeds.com/giata/xxl/07/077101/077101a_hb_ro_027.jpg",
-        ],
-        price: 220,
-        amount: 3,
-      },
-    ],
+
     location: "lujan",
   },
 
@@ -233,17 +165,7 @@ const hotels = [
 
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui officiis maiores deserunt magni aliquam dolores, consequuntur eveniet ratione? Velit dolores vitae, praesentium ipsum facere quos id molestiae quia necessitatibus maxime magnam voluptates sequi, officiis, natus dignissimos placeat minus laborum. Ipsa fugit eligendi quis autem alias omnis sit quas iure dolorem voluptas aliquam architecto iusto cupiditate animi quisquam minima vel voluptatem fuga, at nihil. Cupiditate enim hic at veritatis magnam dolorem officia qui tenetur in earum repellat, expedita quidem numquam maxime pariatur adipisci perspiciatis dicta porro aspernatur itaque cum voluptatibus voluptas animi. Quae tempore fugit quaerat minus temporibus ducimus eligendi. Sunt!",
-    rooms: [
-      {
-        title: "doble standard",
-        pictures: [
-          "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1632292504/fc1gzgyiqnawrjco7wdy.jpg",
-          "https://res.cloudinary.com/lastminute/image/upload/w_1000,h_1000,c_fit,q_auto,f_auto/v1485001175/pphax0z7zhldfzvhutlj.jpg",
-        ],
-        price: 220,
-        amount: 3,
-      },
-    ],
+
     location: "merlo",
   },
 ];

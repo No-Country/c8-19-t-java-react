@@ -8,6 +8,7 @@ import userRouter from "./routes/user-route.js";
 import commentsRouter from "./routes/route-comments.js";
 import favoriteRouter from "./routes/favorite-router.js";
 import { Hotel } from "./models/hotelSchema.js";
+import roomsRouter from "./routes/room-route.js";
 import hotels from "./data/hotels.js";
 
 const app = express();
@@ -23,6 +24,7 @@ app.use("/api/hotels", hotelRouter);
 app.use("/api/user", userRouter);
 app.use("/api/comments", commentsRouter);
 app.use("/api/favorites", favoriteRouter);
+app.use("/api/rooms", roomsRouter);
 
 app.use("/insertAllHotels", async (req, res) => {
   const allHotels = await Hotel.insertMany(hotels);

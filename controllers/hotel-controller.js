@@ -1,5 +1,5 @@
 // import hotels from "../data/hotels.js";
-import { Hotel, Room } from "../models/hotelSchema.js";
+import { Hotel } from "../models/hotelSchema.js";
 
 const insertHotels = async (req, res) => {
   const { state, ...rest } = req.body;
@@ -49,12 +49,14 @@ const getHotel = async (req, res) => {
   console.log(id);
 
   try {
-    const findHotel = await Hotel.findById(id).populate({
-      path: "comments",
-      populate: {
-        path: "user",
-      },
-    });
+    const findHotel = await Hotel.findById(id)
+      .populate("rooms")
+      .populate({
+        path: "comments",
+        populate: {
+          path: "user",
+        },
+      });
 
     if (!findHotel)
       return res.status(404).json({

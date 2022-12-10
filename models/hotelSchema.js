@@ -1,27 +1,5 @@
 import mongoose, { Schema, model } from "mongoose";
 
-const roomSchema = new Schema(
-  {
-    title: {
-      type: String,
-    },
-    pictures: {
-      type: [String],
-    },
-    price: {
-      type: Number,
-      required: true,
-    },
-    amount: {
-      type: Number,
-    },
-    unavailableDates: { type: [Date] },
-  },
-  { timestamps: true }
-);
-
-export const Room = model("Room", roomSchema);
-
 export const hotelSchema = new Schema({
   title: {
     type: String,
@@ -46,7 +24,7 @@ export const hotelSchema = new Schema({
   services: {
     type: Schema.Types.Mixed,
   },
-  rooms: [roomSchema],
+  rooms: [{ type: Schema.Types.ObjectId, ref: "Room" }],
   owner: {
     type: Schema.Types.ObjectId,
     ref: "User",
