@@ -13,8 +13,6 @@ const PlaceDetails = () => {
 
   const { data, isLoading } = useGetHotelQuery(id);
 
-  console.log(data?.findHotel);
-
   if (isLoading)
     return (
       <div className="flex justify-center items-center min-h-screen">
@@ -46,7 +44,10 @@ const PlaceDetails = () => {
           Elige tu habitación en Fiesta Inn Oaxaca
         </h3>
       </div>
-      <RoomCard data={data?.findHotel?.rooms} />
+      {data?.findHotel?.rooms.map((room) => (
+        <RoomCard key={room._id} room={room} />
+      ))}
+
       <Comments data={data?.findHotel} />
     </div>
   );

@@ -89,10 +89,7 @@ const Search = () => {
               onChange={handleChange}
             >
               {persons.map((person) => (
-                <option key={person} value={person}>
-                  <BsPerson />
-                  <span className="ml-8"> {person}</span>
-                </option>
+                <option key={person}>{person}</option>
               ))}
             </select>
           </div>

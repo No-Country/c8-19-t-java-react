@@ -17,10 +17,10 @@ export const sunnyApi = createApi({
       query: (location) => `/hotels/search/?location=${location}`,
     }),
     addHotelDates: builder.mutation({
-      query: ({ id, ...rest }) => ({
-        url: `/hotels/${id}`,
+      query: ({ id, dates }) => ({
+        url: `/rooms/${id}`,
         method: "POST",
-        body: rest,
+        body: dates,
       }),
     }),
     signIn: builder.mutation({
