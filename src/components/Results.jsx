@@ -12,8 +12,6 @@ import { useState } from "react";
 
 const Results = ({ onToggleFilters, viewFilters }) => {
   const { location } = useParams();
-
-  console.log(location);
   const { data: locationData } = useGetHotelsByLocationQuery(location);
   const { data, isLoading } = useGetAllHotelsQuery();
 

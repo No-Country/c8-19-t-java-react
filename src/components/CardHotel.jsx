@@ -57,15 +57,15 @@ const CardHotel = ({ hotel, addedToFavs }) => {
 
   return (
     <Link to={`/${hotel._id}`}>
-      <div className="flex gap-2  bg-white rounded-xl overflow-hidden">
-        <figure className="w-[400px] h-[240px] object-cover bg-slate">
+      <div className="flex flex-col md:flex-row gap-2  bg-white rounded-xl overflow-hidden">
+        <figure className="w-full  md:w-[400px] h-[240px] object-cover bg-slate">
           <img
-            className="w-full h-full  object-cover bg-slate"
+            className="w-full h-full  object-cover"
             src={hotel.pictures[0]}
             alt={hotel.title}
           />
         </figure>
-        <div className="flex justify-between items-center w-full p-4">
+        <div className="flex flex-col md:flex-row justify-between gap-4  w-full p-4">
           <div className="flex flex-col ">
             <h4 className="text-slate font-bold text-xl">{hotel.title}</h4>
             <Rating
@@ -90,7 +90,7 @@ const CardHotel = ({ hotel, addedToFavs }) => {
               </ul>
             </div>
           </div>
-          <div className="flex flex-col justify-between items-end h-full relative">
+          <div className="flex flex-col justify-between items-end h-full relative gap-2">
             <button className="bg-white shadow-md  p-1 w-[50px] h-[50px] flex justify-center items-center rounded-full">
               {addedToFavs ? (
                 <AiOutlineDelete

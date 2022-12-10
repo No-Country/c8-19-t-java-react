@@ -19,6 +19,8 @@ const Filters = ({ onToggleFilters }) => {
 
   const filter = useSelector((state) => state.filter);
 
+  console.log(filter);
+
   const dispatch = useDispatch();
 
   const { data } = useGetHotelsByFilterQuery(filter);
@@ -86,7 +88,7 @@ const Filters = ({ onToggleFilters }) => {
             >
               {" "}
               <input
-                onChange={(e) => dispatch(setPrice(e.target.value))}
+                onChange={(e) => dispatch(setRating(e.target.value))}
                 type="radio"
                 name="filters"
                 id={item}
