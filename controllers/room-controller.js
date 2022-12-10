@@ -39,7 +39,7 @@ const addRoomDates = async (req, res) => {
   try {
     const getRangeDates = (startDate, endDate) => {
       let dates = [];
-      //to avoid modifying the original date
+
       const theDate = new Date(startDate);
       while (theDate < new Date(endDate)) {
         dates = [...dates, new Date(theDate)];
@@ -52,14 +52,21 @@ const addRoomDates = async (req, res) => {
     const range = getRangeDates(dates[0], dates[1]);
 
     const findRoom = await Room.findByIdAndUpdate(id, {
-      $addToSet: {
+      $push: {
         unavailableDates: range,
       },
     });
 
+    if (!findRoom) {
+      res.status(401).json({
+        msg: "No se encontro el hotel",
+      });
+    }
+
     await findRoom.save();
 
     res.status(200).json({
+      msg: "Fechas agregadas",
       findRoom,
     });
   } catch (error) {
