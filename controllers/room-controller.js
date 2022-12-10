@@ -36,44 +36,35 @@ const addRoomDates = async (req, res) => {
   const { id } = req.params;
   const { dates } = req.body;
 
-  try {
-    const getRangeDates = (startDate, endDate) => {
-      let dates = [];
+  const getRangeDates = (startDate, endDate) => {
+    let dates = [];
 
-      const theDate = new Date(startDate);
-      while (theDate < new Date(endDate)) {
-        dates = [...dates, new Date(theDate)];
-        theDate.setDate(theDate.getDate() + 1);
-      }
-      dates = [...dates, new Date(endDate)];
-      return dates;
-    };
-
-    const range = getRangeDates(dates[0], dates[1]);
-
-    const findRoom = await Room.findByIdAndUpdate(id, {
-      $push: {
-        unavailableDates: range,
-      },
-    });
-
-    if (!findRoom) {
-      res.status(401).json({
-        msg: "No se encontro el hotel",
-      });
+    const theDate = new Date(startDate);
+    while (theDate < new Date(endDate)) {
+      dates = [...dates, new Date(theDate)];
+      theDate.setDate(theDate.getDate() + 1);
     }
+    dates = [...dates, new Date(endDate)];
+    return dates;
+  };
 
-    await findRoom.save();
+  const range = getRangeDates(dates[0], dates[1]);
 
-    res.status(200).json({
-      msg: "Fechas agregadas",
-      findRoom,
-    });
-  } catch (error) {
-    res.status(400).json({
-      error: "Algo salio mal",
+  const findRoom = await Room.findByIdAndUpdate(id, {
+    $push: {
+      unavailableDates: range,
+    },
+  });
+
+  if (!findRoom) {
+    res.status(401).json({
+      msg: "No se encontro el hotel",
     });
   }
+
+  res.status(200).json({
+    msg: "Fechas agregadas",
+  });
 };
 
 export { createRoom, addRoomDates };
