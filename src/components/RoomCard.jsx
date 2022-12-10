@@ -25,7 +25,10 @@ const RoomCard = ({ room }) => {
   const handleClick = () => {
     const newDates = {
       id: room._id,
-      dates: [date[0].startDate.toDateString(), date[0].endDate.toDateString()],
+      dates: [
+        date[0].startDate.toLocaleDateString(),
+        date[0].endDate.toLocaleDateString(),
+      ],
     };
 
     console.log(newDates);
