@@ -71,7 +71,7 @@ const addRoomDates = async (req, res) => {
     });
   } catch (error) {
     res.status(400).json({
-      error,
+      error: "Algo salio mal",
     });
   }
 };
