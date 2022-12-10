@@ -11,8 +11,7 @@ const RoomCard = ({ room }) => {
 
   console.log(room);
 
-  const [addHotelsDates, { data: roomData, error }] =
-    useAddHotelDatesMutation();
+  const [addHotelsDates, result] = useAddHotelDatesMutation();
 
   const [date, setDate] = useState([
     {
@@ -23,21 +22,13 @@ const RoomCard = ({ room }) => {
   ]);
 
   const handleClick = () => {
-    const newDates = {
+    addHotelsDates({
       id: room._id,
-      dates: [
-        date[0].startDate.toLocaleDateString(),
-        date[0].endDate.toLocaleDateString(),
-      ],
-    };
-
-    console.log(newDates);
-
-    addHotelsDates(newDates);
+      dates: [date[0].startDate, date[0].endDate],
+    });
   };
 
-  console.log(roomData);
-  console.log(error);
+  console.log(result);
 
   return (
     <section className="bg-gray">
