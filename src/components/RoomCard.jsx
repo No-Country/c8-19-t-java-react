@@ -22,10 +22,14 @@ const RoomCard = ({ room }) => {
   ]);
 
   const handleClick = () => {
+    console.log(date);
+
     addHotelsDates({
       id: room._id,
-      dates: [date[0].startDate, date[0].endDate],
+      dates: [date[0].startDate.toDateString(), date[0].endDate.toDateString()],
     });
+
+    console.log(result);
   };
 
   console.log(result);
